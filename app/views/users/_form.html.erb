@@ -1,0 +1,14 @@
+<% form_for :user, @user, :url => { :action => "create" } do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </p>
+
+  <%= password_field "user", "password" %>
+
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>

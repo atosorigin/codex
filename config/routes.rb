@@ -39,16 +39,16 @@ ActionController::Routing::Routes.draw do |map|
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
 
-#  map.resources :users do |user|
-#    user.resources :order
-#  end
+  map.resources :users do |user|
+    user.resources :order
+  end
 
-  map.resources :user, :has_many => :orders
+#  map.resources :user, :has_many => :orders
 #  map.resources :order
 
 
 #  map.connect ':controller/:action/:id'
 #  map.connect ':controller/:action/:id.:format'
-
+  map.root :controller => "users"
 
 end
