@@ -7,3 +7,8 @@ gem 'mysql'
 gem 'bundler'
 
 gem 'headshift-rails'
+
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-ext'
+end
