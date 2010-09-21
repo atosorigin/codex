@@ -40,12 +40,15 @@ and open the template in the editor.
     <ul>
         <li>list of Postcodes that yodel services <br/><a href="/postcodes">codex.yodel.co.uk/postcodes</a></li>
         <li>Details for a specific postcode <br/><a href="/postcodes/SW17%208LW">codex.yodel.co.uk/postcodes/SW17%208LW</a></li>
+        <li>TODO: products for a specific post code</li>
+        <li>TODO: /orders</li>
+        <li>TODO: /parcels</li>
         <li>list of the Yodel products i.e. services <br/><a href="/products">codex.yodel.co.uk/products</a></li>
         <li>information on a specific product <br/><a href="/products/Mid_Range">codex.yodel.co.uk/products/Mid_Range</a></li>
         <li>list of all yodel users <br/><a href="/users">codex.yodel.co.uk/users</a></li>
         <li>details for a specific user <br/><a href="/users/geoff">codex.yodel.co.uk/users/geoff</a></li>
         <li>a list of a users orders <br/><a href="/users/geoff/orders">codex.yodel.co.uk/users/geoff/orders</a></li>
-        <li>a specific order for a user <br/><a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a></li>
+        <li>TODO: {discuss and remove} a specific order for a user <br/><a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a></li>
         <li>The consigments for a specific order for user geoff <br/><a href="/users/geoff/orders/272625/consignments">codex.yodel.co.uk/users/geoff/orders/272625/consignments</a></li>
         <li>A specific consignment for a specific order for user geoff <br/><a href="/users/geoff/orders/272625/consignments/3456">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456</a></li>
         <li>A list of parcels for a specific consignment for a specific order for user geoff <br/><a href="/users/geoff/orders/272625/consignments/3456/parcels">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels</a></li>
@@ -145,8 +148,8 @@ and open the template in the editor.
       <li>
           01/02/2010 10:30:56<br/>
           <p>
-              My Coyote changes his mind about the order and now only wants 200 invisible holes, and says that he would like Geoff
-              to proceed  Geoff changes the description and number of parcels. The yodel website acheives this by sending a DELETE to the representation of the parcel on the codex.
+              My Coyote changes his mind about the order and now only wants 200 invisible holes
+              and says that he would like Geoff to proceed. Geoff has created a consignment o three boxes each with 100 invisible holes in it. So all geoff has to do is get rid of one box. Geoff changes the description and number of parcels. The yodel website acheives this by sending a DELETE to the representation of the parcel on the codex.
               DELETE codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels/11102236, if the call is successfull it returns the informtion about the consignment and the you will notice the delet in the history.
               <a href="/users/geoff/orders/272625/consignments/3456">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456</a>
           </p>
