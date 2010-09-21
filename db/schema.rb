@@ -9,11 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100818135816) do
+ActiveRecord::Schema.define(:version => 20100920143240) do
 
   create_table "orders", :force => true do |t|
     t.string   "payment_status"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parcels", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

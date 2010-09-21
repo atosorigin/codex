@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+The CRC model indicates that a consignement knows its account and contract,
+however I assume that an account and a contract have a 1 to relationship and
+that an account can also have multiple users, but users cannot be shared accross
+accounts.
+-->
+<consignment>
+  <id>3456</id>
+  <tracking_reference>HGRSN7562628</tracking_reference>
+  <manifest_number>983027</manifest_number>
+  <collection_date>03/02/2010</collection_date>
+  <sender>Geoff</sender>
+  <description>2 parcels of 100 invisible holes</description>
+  <product>Mid Range</product>
+  <delivery_address>
+    Wile E. Coyote
+    1 deserted desert road,
+    Tucson,
+    AZ 85721
+  </delivery_address>
+  <return_address>
+    ACME corporation inc
+    New York,
+    New York
+    NY 6854
+  </return_address>
+  <dimensions>
+    <weight>16</weight>
+    <length>1.8</length>
+    <volume>0.3</volume>
+  </dimensions>
+  <comments>
+    <item>
+      <by>Geoff</by>
+      <date>01/02/2010 09:17:10</date>
+      <comment>Customer not sure about number of holes, will call back later</comment>
+    </item>
+  </comments>
+  <history>
+      <item>
+        <date>01/02/2010 09:16:30</date>
+        <user>Geoff</user>
+        <description>Created</description>
+      </item>
+      <item>
+        <date>01/02/2010 09:17:10</date>
+        <user>Geoff</user>
+        <description>Parcel id 11102234 added</description>
+      </item>
+      <item>
+        <date>01/02/2010 09:17:10</date>
+        <user>Geoff</user>
+        <description>Parcel id 11102235 added</description>
+      </item>
+      <item>
+        <date>01/02/2010 09:17:10</date>
+        <user>Geoff</user>
+        <description>Parcel id 11102236 added</description>
+      </item>
+      <item>
+        <date>01/02/2010 10:30:56</date>
+        <user>Geoff</user>
+        <description>Parcel id 11102236 removed</description>
+      </item>
+      <item>
+        <date>01/02/2010 10:30:56</date>
+        <user>Geoff</user>
+        <description>Description changed from "3 parcels of 100 invisible holes"</description>
+      </item>
+      <item>
+        <date>01/02/2010 10:30:56</date>
+        <user>Geoff</user>
+        <description>weight changed fom 24</description>
+      </item>
+      <item>
+        <date>01/02/2010 10:43:22</date>
+        <user>Geoff</user>
+        <description>pre advice requested</description>
+      </item>
+      <item>
+        <date>01/02/2010 10:45:51</date>
+        <description>pre advice delivered</description>
+      </item>
+      <item>
+        <date>03/02/2010 08:45:06</date>
+        <description>Collected by driver id 138923634 van id 063428</description>
+      </item>
+      <item>
+        <date>11/02/2010 10:33:03</date>
+        <description>Parcel id 11102235 delivered</description>
+      </item>
+      <item>
+        <date>14/02/2010 12:12:55</date>
+        <description>Parcel id 11102234 delivered</description>
+      </item>
+  </history>
+</consignment>

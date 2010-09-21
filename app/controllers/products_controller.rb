@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.new :name => params[:product_name]
     render :file => "products/show.xml.erb"
   end
 

@@ -1,0 +1,101 @@
+body {
+  background-color: #B6CDDE;
+  font-family: sans-serif;
+}
+
+a {
+    font-family: monospace;
+    color: gray;
+    background-color: white;
+}
+
+li{
+    margin-bottom: 5px;
+}
+#container {
+  margin: 30px auto;
+  background-color: #FFF;
+  padding: 30px;
+  width: 900px;
+  overflow: hidden;
+}
+
+#user_message form, #user_message div {
+  display: inline;
+}
+
+#user_message {
+  float: right;
+}
+
+table.orders, table.order {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #EEE;
+}
+
+table.orders th, table.order th {
+  text-align: left;
+  background-color: #EEE;
+  padding: 0 3px;
+}
+
+table.order th {
+  width: 150px;
+}
+
+table.order td {
+  padding-left: 10px;
+}
+
+
+table.orders tr.even, table.order tr.even {
+  background-color: #FAFAFA;
+}
+
+
+.left {
+  float: left;
+}
+
+.right {
+  margin-left: 400px;
+}
+
+.clear { clear: both; }
+
+
+.column {
+  width: 400px;
+}
+
+.wide {
+  width: 300px;
+}
+
+input[type=text], input[type=select] {
+  width: 300px;
+}
+
+input[type=text] {
+  border: 1px solid #999;
+}
+
+textarea {
+  width: 300px;
+  border: 1px solid #999;
+
+}
+
+
+#flash_alert {
+  color: red;
+}
+
+#flash_notice {
+  color: green;
+}
+
+h1 a {
+  text-decoration: none;
+}
