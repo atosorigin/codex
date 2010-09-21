@@ -4,8 +4,9 @@ ActionController::Routing::Routes.draw do |map|
   # http://charlotte.jira.com/wiki/display/infofabric/codex+api+-+work+in+progress
   
   # postcodes
-  map.products  '/postcodes',               :controller => 'postcodes', :action => 'index'
-  map.connect   '/postcodes/:postcode',     :controller => 'postcodes', :action => 'show',  :postcode => /[a-zA-Z0-9_\s%]+/
+  map.products  '/postcodes',                        :controller => 'postcodes', :action => 'index'
+  map.connect   '/postcodes/:postcode/products',     :controller => 'postcodes', :action => 'products',  :postcode => /[a-zA-Z0-9_\s%]+/
+  map.connect   '/postcodes/:postcode',              :controller => 'postcodes', :action => 'show',  :postcode => /[a-zA-Z0-9_\s%]+/
 
   # products
   map.products  '/products',                :controller => 'products', :action => 'index'

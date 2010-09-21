@@ -5,8 +5,10 @@ class PostcodesController < ApplicationController
   end
 
   def show
-    @product = Product.new :name => params[:product_name]
     render :file => "postcodes/show.xml.erb"
   end
 
+  def products
+    render :file => "postcodes/products.xml.erb"
+  end
 end

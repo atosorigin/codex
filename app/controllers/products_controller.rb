@@ -9,4 +9,9 @@ class ProductsController < ApplicationController
     render :file => "products/show.xml.erb"
   end
 
+  def postcodes
+    @product = Product.new :name => params[:product_name]
+    render :file => "products/postcodes.xml.erb"
+  end
+
 end
