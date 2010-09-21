@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # postcodes
   map.products  '/postcodes',               :controller => 'postcodes', :action => 'index'
-  map.connect   '/postcodes/:postcode',     :controller => 'postcodes', :action => 'show',  :postcode => /[a-zA-Z0-9 _]+/
+  map.connect   '/postcodes/:postcode',     :controller => 'postcodes', :action => 'show',  :postcode => /[a-zA-Z0-9_\s%]+/
 
   # products
   map.products  '/products',                :controller => 'products', :action => 'index'
