@@ -1,0 +1,206 @@
+/*HORIZONTAL NAV*/
+.horizontal
+{
+    white-space: nowrap;
+    text-align: left;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    padding-left: 8px;
+    padding-right: 0px;
+    margin: 0px;
+ }
+
+.horizontal li
+{
+    font-size: 1em;
+    display: inline;
+    list-style-type: none;
+    line-height:1.4em;
+} 
+
+.horizontal a
+{
+	padding: 2px 4px 4px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.9em; 
+}
+
+.horizontal a
+{
+    color: #85898A;
+    text-decoration: none;
+}
+
+.horizontal a:hover
+{
+    color: #4DB039;
+    text-decoration: none;
+}
+
+.horizontal .selected {color:#4DB039;}
+.horizontal .selected.branch {color:#4DB039;}
+.horizontal .branch {color:purple;}
+
+/*VERTICAL NAV*/
+.vertical
+{
+    width:100%;
+    line-height:1.4em;
+    padding-bottom:20px;
+    margin:0;
+    padding:0px;
+    list-style-type:none;
+    text-align:left;
+}
+
+.vertical ul
+{
+    margin:0px;
+    padding:0px 0px 0px 0px;
+    list-style-type:none;
+}
+
+.vertical li
+{
+    font-size: 1em;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    color: black;
+    border-bottom:dotted 1px #8cc63f;
+    cursor:pointer;
+}
+
+.vertical li span
+{
+    display:block;
+   /* padding:3px 3px 3px 13px;*/
+	 padding:3px 3px 3px 3px;
+
+    text-decoration:none;
+    /*border-left:5px solid #4DB0ff;*/
+    /*background-color:#F1F1F1;*/
+    border-bottom:2px dotted #fff;
+    color:#000000;
+    font-size:12px;
+}
+
+
+.vertical li span:hover
+{
+    color: #8cc63f;
+}
+
+.vertical li span.branch
+{
+    border-left:5px solid #ccc;
+    color: #777;
+}
+
+.vertical li span.branch:hover
+{
+    border-left:5px solid #4dB0aa;
+    color: #4DB0ff;
+}
+
+.vertical li span.selected
+{
+    color: #8cc63f;
+}
+
+
+.vertical li span a
+{
+    display:block;
+    /*padding:3px 3px 3px 13px;*/
+    text-decoration:none;
+    /*border-left:5px solid #4DB0ff;*/
+    /*background-color:#F1F1F1;*/
+    border-bottom:2px dotted #fff;
+    color:#000000;
+    font-size:12px;
+}
+
+
+.vertical li span a:hover
+{
+    color: #8cc63f;
+}
+
+.vertical li span a.branch
+{
+    border-left:5px solid #ccc;
+    color: #777;
+}
+
+.vertical li span a.branch:hover
+{
+    border-left:5px solid #4dB0aa;
+    color: #4DB0ff;
+}
+
+.vertical li span a.selected
+{
+    color: #8cc63f;
+}
+
+/***********************************/
+.vertical li a
+{
+    display:block;
+   /* padding:3px 3px 3px 13px;*/
+	 padding:3px 3px 3px 3px;
+
+    text-decoration:none;
+    /*border-left:5px solid #4DB0ff;*/
+    /*background-color:#F1F1F1;*/
+    border-bottom:2px dotted #fff;
+    color:#000000;
+    font-size:12px;
+}
+
+
+.vertical li a:hover
+{
+    color: #8cc63f;
+}
+
+.vertical li a.branch
+{
+    border-left:5px solid #ccc;
+    color: #777;
+}
+
+.vertical li a.branch:hover
+{
+    border-left:5px solid #4dB0aa;
+    color: #4DB0ff;
+}
+
+.vertical li a.selected
+{
+    color: #8cc63f;
+}
+
+
+
+/*
+.vertical.lv1 li a{padding:3px 3px 3px 5px;}
+.vertical .lv2 li a{padding:3px 3px 3px 25px;}
+.vertical .lv3 li a{padding:3px 3px 3px 50px;}
+.vertical .lv4 li a{padding:3px 3px 3px 75px;}
+*/
+
+/*
+.vertical.lv1 li span a{padding:3px 3px 3px 5px;}
+.vertical .lv2 li span a{padding:3px 3px 3px 25px;}
+.vertical .lv3 li span a{padding:3px 3px 3px 50px;}
+.vertical .lv4 li span a{padding:3px 3px 3px 75px;}
+*/
+
+
+
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

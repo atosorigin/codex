@@ -1,0 +1,255 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="ctl00_ctl00_ctl00_ContentPlaceHolderDefault_head">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>The Yodel Codex</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="stylesheets/codex.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="stylesheets/hdnCSS.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/COGNavigation.css">
+        <script type="text/javascript" src="javascripts/jQuery.js"></script>
+        <script type="text/javascript" src="stylesheets/qtobject.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#topMenuUnrivalledChoice").addClass("currentLeft");
+                $("#topMenuUnrivalledChoiceDiv").addClass("current");
+
+                $("#lhsMenuUnrivalledChoice").hide();
+                $("#lhsMenuNews").hide();
+                $("#lhsMenuContact").hide();
+
+                $("#lhsMenuWelcome").addClass("selected");
+                $("#lhsMenuWelcome a").addClass("selected");
+            });
+        </script>
+
+    </head>
+    <body>
+        <div id="logoutContainer">
+        </div>
+        <div id="main">
+            <div id="header" class="header">
+                <div id="top">
+                    <div id="siteLogo">
+                        <a href="/">
+                            <img style="border: medium none;" src="images/yodellogo.gif">
+                        </a>
+                        <div id="headTextLeft">
+                            Welcome to the Yodel developer resource center.
+                            Automate your parcel operation with our simple web
+                            API.
+                        </div>
+                    </div>
+                    <div id="navigationContainer">
+                        <div id="navigation" class="headNavigation">
+                            <div class="">
+                                <ul id="topNavigationUL">
+                                    <li id="topMenuHome" class="">
+                                        <div id="topMenuHomeDiv">
+                                            <div class=""><a href="/">The Codex</a></div>
+                                        </div>
+                                    </li>
+                                    <li id="topMenuUnrivalledChoice" >
+                                        <div id="topMenuUnrivalledChoiceDiv">
+                                             <div><a href="shipping_walkthrough.html">Shipping Example</a></div>
+                                        </div>
+                                    </li>
+                                    <li id="topMenuNews">
+                                        <div id="topMenuNewsDiv">
+                                            <div><a href="codex_api.html">Codex API</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="topMenuContact">
+                                        <div id="topMenuContactDiv">
+                                            <div><a href="http://www.yodel.co.uk/contact.aspx">Contact</a></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="subNavigation">
+                            <div class="inner">
+
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="body">
+                                <div id="leftSection">
+
+                                    <ul class="vertical lv1">
+                                        <li class="selected" id="lhsMenuWelcome"><a class="selected" href="http://www.yodel.co.uk/welcome.aspx">Yodel.co.uk</a></li>
+                                        <li id="lhsMenuOurStory"><a href="http://www.yodel.co.uk/our-story.aspx">Our Story</a></li>
+                                        <li style="display: none;" id="lhsMenuUnrivalledChoice"><a href="http://www.yodel.co.uk/Unrivalled-Choice.aspx">Unrivalled Choice</a></li>
+                                        <li style="display: none;" id="lhsMenuNews"><a href="http://www.yodel.co.uk/news.aspx">News</a></li>
+                                        <li style="display: none;" id="lhsMenuContact"><a href="http://www.yodel.co.uk/contact.aspx">Contact</a></li>
+                                        <li id="lhsMenuFeedback"><a href="http://www.yodel.co.uk/feedback.aspx">Feedback</a></li>
+                                    </ul>
+
+
+                                    <div id="leftSectionText">Home Delivery Network
+                                        Limited purchased through
+                                        its subsidiary company
+                                        Parcelpoint Limited the
+                                        domestic B2B and B2C
+                                        businesses of DHL Express
+                                        (UK) Limited. The new
+                                        corporate identity for HDN
+                                        and Parcelpoint will be Yodel.
+                                        All our existing products and
+                                        services are still available
+                                        and will be working just as
+                                        efficiently. Please continue
+                                        to access your existing
+                                        services in exactly the same
+                                        way via the normal website
+                                        and be reassured that your
+                                        customers' track and trace
+                                        service remains unchanged.</div>
+                                </div>
+                                <div id="centerSection">
+                                    <div id="content">
+    <ul>
+      <li>
+          01/02/2010 09:10:00<br/>
+          <p>
+              Wile E. Coyote calls ACME and to place an order Geoff from ACME
+              records the sale and when he comes to ship the products to Mr
+              Coyote he opens his browser on yodel.co.uk
+          </p>
+      </li>
+      <li>
+          01/02/2010 09:11:00<br/>
+          <p>
+          Geoff logs into the yodel website. This web site offers him a UI
+          which allows him to enter the products he whishes to ship to Mr Coyote.
+          When Geoff logs in the the Yodel website it makes a call to the codex
+          asking for Geoffs details.
+          </p>
+          <p>
+          The URL that represents Geoff is <a href="/users/geoff">codex.yodel.co.uk/users/geoff</a>. <br/>
+          The Yodel website has a dashboard. This shows the most important information to Geoff.
+          To get the Geoff's current list of orders it makes another call to the codex using this API.
+          <a href="/users/geoff/orders">codex.yodel.co.uk/users/geoff/orders</a>.
+          </p>
+      </li>
+      <li>
+          01/02/2010 09:15:00<br/>
+          <p>
+          Geoff wants to creates a new order so he clicks on the New order button in the yodel website.
+          This shows a form where Geoff can enter Mr Coyotes information. Geoff fills in the order information supplied for Mr Coyote.
+          When he is done he hits save.
+          </p>
+          <p>
+          The Yodel website then posts to the codex the information for this new order.
+          The data for the order is in the POST format and is posted to codex.yodel.co.uk/users/geoff/orders.
+          This is successfull and redirects the response to the following new order, which has now been given an order id.
+          <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+          </p>
+      </li>
+      <li>
+          01/02/2010 09:16:30 01/02/2010 09:15:00<br/>
+          <p>
+          There are no consignments in this order yet so Geoff hits a "new consignment" button.
+          He is presented with a a form fills for the consignment information. Once this is complete he presses "save" and the form data is posted to
+          the yodel codex here  codex.yodel.co.uk/users/geoff/orders/272625/consignments
+          Again this is successfull and the codex creates a new consignment id and redirects the response to the details for the new consignment
+          <a href="/users/geoff/orders/272625/consignments/3456">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456</a>
+          </p>
+      </li>
+      <li>
+          01/02/2010 09:30:56<br/>
+          <p>
+              Geoff places alot of orders with yodel and he likes to know what is going where.
+              so he changes the description to "Shipment to Mr Cyote 300 invisible holes"
+              Notice that Geoff can leave comments on the order these are posted to the codex so that they can be shared accross all the yodelsites.
+              He adds the parcels to the consignment using the yodel website which inturn sends a post containing the parcel object to the codex
+              <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+              01/02/2010 09:47:12 - Geoff adds the notification methods for Mr Coyote.
+          </p>
+      </li>
+      <li>
+          01/02/2010 10:30:56<br/>
+          <p>
+              My Coyote changes his mind about the order and now only wants 200 invisible holes
+              and says that he would like Geoff to proceed. Geoff has created a consignment o three boxes each with 100 invisible holes in it. So all geoff has to do is get rid of one box. Geoff changes the description and number of parcels. The yodel website acheives this by sending a DELETE to the representation of the parcel on the codex.
+              DELETE codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels/11102236, if the call is successfull it returns the informtion about the consignment and the you will notice the delet in the history.
+              <a href="/users/geoff/orders/272625/consignments/3456">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456</a>
+          </p>
+      </li>
+      <li>
+          01/02/2010 10:45:51<br/>
+          <p>
+            When the codex is posted parcel details it automatically attempts to get the pre advice |discussion needed here| when preadvice is available the label for the parcel will be available.
+            the yodel website will be able to get the label from the following URI
+            <a href="/users/geoff/orders/272625/consignments/3456/parcels/11102235">
+                codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels/11102235/label
+            </a>
+          </p>
+      </li>
+      <li>
+          02/02/2010 00:22:01 - in the batch run at night the and geoffs order
+          is updated, and the van driver is scghedueld
+      </li>
+      <li>
+          03/02/2010 08:45:06 - Then the order is collected by driver Mike who
+          has van id 063428
+      </li>
+      <li>
+          11/02/2010 10:33:03 - Parcel id 11102235 delivered
+      </li>
+      <li>
+          14/02/2010 12:12:55 - Parcel id 11102234 delivered
+      </li>
+      <li>
+          14/02/2010 12:12:55 - as all of the tracking status come in on the
+          oder its updated, till eventually all the parces are successfull
+          delivered.
+      </li>
+    </ul>
+            </div>
+      </div>
+
+            </div>
+        </div>
+
+<div id="footer">
+
+                                                                                    <div id="footerText">
+                                                                                        <div id="footerText2">
+				Home Delivery Network Limited Registered Number: 05200072
+                                                                                            Registered Address: First Floor, Skyways House, Speke Road, Speke,
+                                                                                            Liverpool, England L70 1AB
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div id="footerSpacer">&nbsp;</div>
+                                                                                    <div id="footerLinksDocs">
+                                                                                        <ul id="footerLinks">
+                                                                                            <li id="leftLink">
+
+                                                                                                <a href="http://www.yodel.co.uk/media/142/yd0001_yodel_a4_web_t_&amp;_cs_download.pdf">Terms &amp; Conditions</a>
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                <a href="http://www.yodel.co.uk/media/143/yd0001_yodel_a4_web_privacy_policy_download.pdf">Privacy Policy</a>
+                                                                                            </li>
+                                                                                        </ul>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="linebreak">&nbsp;</div>
+                                                                                </div>
+    </body>
+</html>
