@@ -76,7 +76,7 @@ and open the template in the editor.
 
                         <div class="subNavigation">
                             <div class="inner">
-
+                                This walkthrough will shopw how the YODEL codex can speed up your shipping operation
                             </div>
                         </div>
 
@@ -122,109 +122,155 @@ and open the template in the editor.
                                 </div>
                                 <div id="centerSection">
                                     <div id="content">
-    <ul>
+                                        <img src="images/shipping_walkthrough.png" alt="yodel codex shipping walk through"/>
+
+    <div class="heading">A fictional shipping company</div>
+    <p>
+        This description of the YODEL codex is from the point of view of the
+        fictional shipping compnay, ACME. In this sinario ACME's best customer
+        Mr Wile E Coyote wants to buy some dehydrated boulders, so that he can
+        catch his favourite prey - road runner. Although YODEL cannot help
+        Mr Coyote directly with getting his lunch they can certinaly help ACME
+        in sending him the parcels that he so desperatly needs.
+    </p>
+    <p>
+        Our story starts on the 1st of Feburary 2010 just after breakfast. At
+        ACME Geoff in the stores has got into work and has had his cup of coffee
+        when the phone rings, guess who is on the line.
+    </p>
+    <ol>
       <li>
-          01/02/2010 09:10:00<br/>
+          <div class="heading">Monday 09:10, a phone call from Mr Wile E. Coyote</div>
           <p>
-              Wile E. Coyote calls ACME and to place an order Geoff from ACME
-              records the sale and when he comes to ship the products to Mr
-              Coyote he opens his browser on yodel.co.uk
+              Wile E. Coyote calls ACME to place his order for 300 dehydrated holes.
+              Geoff picks up the phone, he records the sale using his home grown shipping system.
+              The dehydrated boulders come in boxes of 100, and Geoff knows that he will
+              have to create a consignment consisting of three parcels for Mr Coyote.
           </p>
       </li>
       <li>
-          01/02/2010 09:11:00<br/>
+          <div class="heading">Monday 09:11, Geoff logs into the codex</div>
           <p>
-          Geoff logs into the yodel website. This web site offers him a UI
-          which allows him to enter the products he whishes to ship to Mr Coyote.
-          When Geoff logs in the the Yodel website it makes a call to the codex
-          asking for Geoffs details.
+              Geoff logs into his shipping application, which is an internal ACME website.
+              His web site offers him a UI which allows him to enter the products he whishes to
+              ship to Mr Coyote. In order for Geoff to request a shipment from the YODEL network
+              his shipping application must login to the codex.
           </p>
           <p>
-          The URL that represents Geoff is <a href="/users/geoff">codex.yodel.co.uk/users/geoff</a>. <br/>
-          The Yodel website has a dashboard. This shows the most important information to Geoff.
-          To get the Geoff's current list of orders it makes another call to the codex using this API.
-          <a href="/users/geoff/orders">codex.yodel.co.uk/users/geoff/orders</a>.
-          </p>
-      </li>
-      <li>
-          01/02/2010 09:15:00<br/>
-          <p>
-          Geoff wants to creates a new order so he clicks on the New order button in the yodel website.
-          This shows a form where Geoff can enter Mr Coyotes information. Geoff fills in the order information supplied for Mr Coyote.
-          When he is done he hits save.
-          </p>
-          <p>
-          The Yodel website then posts to the codex the information for this new order.
-          The data for the order is in the POST format and is posted to codex.yodel.co.uk/users/geoff/orders.
-          This is successfull and redirects the response to the following new order, which has now been given an order id.
-          <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+              The URL that represents Geoffs account on the codex is <a href="/users/geoff">codex.yodel.co.uk/users/geoff</a>.
+              This returns Geoffs information in an XML format.
+              Geoffs shipping application has a dashboard which shows the most important information to Geoff.
+              To get the Geoff's current list of the current set of YODEL orders it makes another call to the codex using this API.
+              <a href="/users/geoff/orders">codex.yodel.co.uk/users/geoff/orders</a>.
           </p>
       </li>
       <li>
-          01/02/2010 09:16:30 01/02/2010 09:15:00<br/>
+          <div class="heading">Monday 09:15, Geoff creates a new YODEL order</div>
           <p>
-          There are no consignments in this order yet so Geoff hits a "new consignment" button.
-          He is presented with a a form fills for the consignment information. Once this is complete he presses "save" and the form data is posted to
-          the yodel codex here  codex.yodel.co.uk/users/geoff/orders/272625/consignments
-          Again this is successfull and the codex creates a new consignment id and redirects the response to the details for the new consignment
-          <a href="/users/geoff/orders/272625/consignments/3456">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456</a>
+              Geoff wants to creates a new order so he clicks on the New order button.
+              This shows a form where Geoff can enter Mr Coyotes information. Geoff fills in the order information supplied for Mr Coyote.
+              When he is done he hits save.
           </p>
-      </li>
-      <li>
-          01/02/2010 09:30:56<br/>
           <p>
-              Geoff places alot of orders with yodel and he likes to know what is going where.
-              so he changes the description to "Shipment to Mr Cyote 300 invisible holes"
-              Notice that Geoff can leave comments on the order these are posted to the codex so that they can be shared accross all the yodelsites.
-              He adds the parcels to the consignment using the yodel website which inturn sends a post containing the parcel object to the codex
+              His shipping application then posts the order information to the codex.
+              The data for the order is in the POST format and is posted to <a href="/users/geoff/orders">codex.yodel.co.uk/users/geoff/orders</a>.
+              This is successfull and redirects the response to the following new order, which has now been given an order reference.
               <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
-              01/02/2010 09:47:12 - Geoff adds the notification methods for Mr Coyote.
           </p>
       </li>
       <li>
-          01/02/2010 10:30:56<br/>
+          <div class="heading">Monday 09:16, Geoff creates a consignment</div>
           <p>
-              My Coyote changes his mind about the order and now only wants 200 invisible holes
-              and says that he would like Geoff to proceed. Geoff has created a consignment o three boxes each with 100 invisible holes in it. So all geoff has to do is get rid of one box. Geoff changes the description and number of parcels. The yodel website acheives this by sending a DELETE to the representation of the parcel on the codex.
-              DELETE codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels/11102236, if the call is successfull it returns the informtion about the consignment and the you will notice the delet in the history.
+              There are no consignments in this order yet so Geoff hits a "new consignment" button.
+              He is presented with a a form fills for the consignment information. Once this is complete he presses "save" and the form data is posted to
+              the yodel codex here  <a href="/users/geoff/orders/272625/consignments">codex.yodel.co.uk/users/geoff/orders/272625/consignments</a>
+              Again this is successfull and the codex creates a new consignment id and redirects the response to the details for the new consignment
               <a href="/users/geoff/orders/272625/consignments/3456">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456</a>
           </p>
       </li>
       <li>
-          01/02/2010 10:45:51<br/>
+          <div class="heading">Monday 09:30, Geoff uses the comments feature to store extra information</div>
           <p>
-            When the codex is posted parcel details it automatically attempts to get the pre advice |discussion needed here| when preadvice is available the label for the parcel will be available.
-            the yodel website will be able to get the label from the following URI
-            <a href="/users/geoff/orders/272625/consignments/3456/parcels/11102235">
+              Geoff places alot of orders with yodel and he likes to know what is going where.
+              so he changes the description to "Shipment to Mr Cyote 300 invisible holes"
+              Notice that Geoff can leave comments on the order these are posted
+              to the codex so that they can be shared accross all his systems, and with Yodel.
+              He adds the parcels to the consignment by POSTing parcel objects to the codex
+              <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+          </p>
+      </li>
+      <li>
+          <div class="heading">Monday 09:47, Mr Coyote wants notifications of his parcel status so he adds a notification</div>
+          <p>
+              The order allows Geoff to provide addresses for diferent comunication networks such as email and SMS.
+              Geoffs system allows him to post updates  to the order for these.
+              <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+              Mr Coyote is very hungery and wants to get on with his plan to catch road runner
+              so he asks Geoff to notified him by email and SMS.
+          </p>
+      </li>
+      <li>
+          <div class="heading">Monday 10:30, My Coyote changes his mind, he only needs 200 dehydrated boulders</div>
+          <p>
+              Geoff had previously created a consignment o three boxes each with 100 dehydrated boulders in it.
+              So all geoff has to do is get rid of one parcel. Geoff changes the description and removes one of the parcels from the consignment.
+              His systems acheives this by sending a DELETE request to the address of the parcel in the codex.
+              <strong>DELETE</strong> <a href="/users/geoff/orders/272625/consignments/3456/parcels/11102236">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels/11102236</a>, if the call is successfull it returns the informtion about the consignment and the you will notice the delet in the history.
+              <a href="/users/geoff/orders/272625/consignments/3456">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456</a>
+          </p>
+      </li>
+      <li>
+          <div class="heading">Monday 10:45, Geoff needs labels for his parcels</div>
+          <p>
+            When the codex is posted parcel details it automatically attempts 
+            to get the pre advice <em>discussion needed here</em>. The codex does not only allow users to
+            get information about their parcels it can also generate labels.
+            As with any other information, the label can be accessed via the ReST API.
+            <a href="/users/geoff/orders/272625/consignments/3456/parcels/11102235/label">
                 codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels/11102235/label
             </a>
           </p>
       </li>
       <li>
-          02/02/2010 00:22:01 - in the batch run at night the and geoffs order
-          is updated, and the van driver is scghedueld
+          <div class="heading">Monday midnight the van driver is scheduled for the pickup</div>
+          <p>
+              The YODEL systems are aware of Geoffs order and they schedule a vandriver to come and pick up the parcels.
+              This can be seen in the order status.  <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+          </p>
       </li>
       <li>
-          03/02/2010 08:45:06 - Then the order is collected by driver Mike who
-          has van id 063428
+          <div class="heading">Tuesday 08:45  A van arrives at ACME</div>
+          <p>
+              Then the order is collected by driver Mike who has van id 063428. Again this information is stored and is accessible via the order URL
+              <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+          </p>
       </li>
       <li>
-          11/02/2010 10:33:03 - Parcel id 11102235 delivered
+          <div class="heading">Wednesday 10:33  Mr Coyote gets his parcels</div>
+          <p>
+            Mr Coyote gets notified by email and text, and on wednesday his parcels arrive.
+            Geoff can tell the status of the delivery by making a call to the codex looking at the parcels URL.
+            <a href="/users/geoff/orders/272625/consignments/3456/parcels/11102236">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels/11102236</a>
+          </p>
       </li>
       <li>
-          14/02/2010 12:12:55 - Parcel id 11102234 delivered
+          <div class="heading">Wednesday 12:05  Geoffs order status is updated</div>
+          When the van driver delivers the parcels to Mr Coyote he scans them.
+          When all the parcels are successfully delivered the order status is updated.
+          Again Geoff can see this by looking at the order.
+          <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
       </li>
-      <li>
-          14/02/2010 12:12:55 - as all of the tracking status come in on the
-          oder its updated, till eventually all the parces are successfull
-          delivered.
-      </li>
-    </ul>
-            </div>
+    </ol>
+
+                                        <p>
+                                            We hope that this example shows you the basic operatio of the YODEL codex.
+                                            To really get to grips with the codex API take a look at the <a href="codex_api.html">YODEL codex API</a>.
+                                        </p>
+
+                                    </div>
       </div>
 
             </div>
-        </div>
 
 <div id="footer">
 

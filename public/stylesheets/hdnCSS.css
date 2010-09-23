@@ -16,6 +16,12 @@ selectBranches="1" maxMenuDepth="1" ulBaseClass="horizontal"
 	font-weight:bold;
 	color: #99CC00;
 }
+.heading
+{
+	font-weight:bold;
+	color: #99CC00;
+}
+
 
 #mediaPageImageContainer
 {
@@ -537,7 +543,7 @@ height:213px;
 
 	font-family:Arial;
 	font-size:11px;
-	color:#000000;
+	color:#A0A0A0;
 	/*padding-left :13px;*/
 }
 

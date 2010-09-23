@@ -1,10 +1,6 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head id="ctl00_ctl00_ctl00_ContentPlaceHolderDefault_head">
+<html>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>The Yodel Codex</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,7 +21,6 @@ and open the template in the editor.
                 $("#lhsMenuWelcome a").addClass("selected");
             });
         </script>
-
     </head>
     <body>
         <div id="logoutContainer">
@@ -74,7 +69,7 @@ and open the template in the editor.
 
                         <div class="subNavigation">
                             <div class="inner">
-                                The Yodel codex, the easy way to automate parceling into your operation and enhance your business.
+                                The YODEL codex, the easy way to automate parceling into your operation and enhance your business.
                             </div>
                         </div>
 
@@ -119,63 +114,106 @@ and open the template in the editor.
 
                                         <img src="images/codex.png" alt="yodel codex"/>
 
+          <div class="heading">What is the YODEL codex?</div>
           <p>
-            The fundamental purpose of the Codex is to provide Fabric
-            applications with a consistent view of information and services
-            regardless of the source of those elements, so insulating
-            information fabric applications from the impact of external change.
+            The YODEL codex is a secure API that allows you to automatically
+            place orders with YODEL, get labels for your parcels and track their
+            delivery status. The API uses the ReST style so that you can
+            integrate your business using the tools of your choice. This site
+            provides resources, information and examples.
           </p>
           <p>
-            The Codex is itself an information fabric application (or set of applications). It provides information to user-facing IF applications on request, structured according to the domain model and through a RESTful API. It also allows IF applications to make transactions against yodel, again using ReST for example orders can be sent to the codex via a POST request.
+              To get information about our products or the status of your orders
+              and parcels all you have to do is make a simple GET request to the
+              YODEL codex which will return you the information in a structured
+              format. To place orders or request labels you will need to POST
+              information to the codex.
           </p>
           <p>
-              This application will show how those restfull API's can be used
-              and simulate a walk through of an end customer (Wile E Coyote)
-              placing an order with a yodel customer (Acme).
+              If you are new to ReST or would like an interesting read we suggest
+              that take a look at this article
+              <a href="http://tomayko.com/writings/rest-to-my-wife">how I explained REST to my wife</a>
+              or read the excelent wikipedia artice on the subject.
           </p>
-          <h2>Current status</h2>
+          <div class="heading">Getting Started with the YODEL codex</div>
           <p>
-              This work is for discussion, to allow us to visualize the behaviour of the codex.
-              We expect that this will evolve into the full product.
+            The fastest way to get going with the codex is to try and use it.
+            Lets try requesting a straight forward piece of information, the
+            list of products that YODEL provides. You can do this by making a
+            HTTP get request to this URL.
           </p>
+          <div class="code">
+              <a href="/products">http://codex.yodel.co.uk/products</a>
+          </div>
           <p>
-              POSTS and DELETE are not yet modeled.
+              When you do this you will be returned the information on all the
+              YODEL services in an XML format, It should look like this.
+          </p>
+          <div class="code">
+                &lt;products&gt;<br/>
+                &nbsp;&nbsp;&lt;product&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Lite&lt;/name&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;description&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Felxible delivery service for parcels that are Up to 2kg<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with dimensions up to 61x20x45cm<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/description&gt;<br/>
+                &nbsp;&nbsp;&lt;/product&gt;<br/>
+                &nbsp;&nbsp;...<br/>
+                &nbsp;&nbsp;&lt;product&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Parcel&lt;/name&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;description&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Felxible delivery service for larger parcels that are up to 32kg with<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dimensions up to 90x60x60cm<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/description&gt;<br/>
+                &nbsp;&nbsp;&lt;/product&gt;<br/>
+                &lt;/products&gt;<br/>
+          </div>
+          <p>
+              This is a pretty simple example and while it provides great information
+              on the YODEL services it its not much use when you want to send a
+              parcel. Now lets look at another - much more usefull - example.
+              When you are sending a parcel in the UK you will need to know
+              which YODEL products you can use to get your parcel delivered.
+              Imagine that you want to send a parcel to an address in the
+              post code area <strong>SW17 8LW</strong>. The codex can help you
+              in a very straight forward way. All you need to do is send a HTTP
+              GET request to the collowing URL.
+          </p>
+          <div class="code">
+              <a href="/postcodes/SW17 8LW/products">http://codex.yodel.co.uk/postcodes/SW17 8LW/products</a>
+          </div>
+          <p>
+              Again the codex will return a porducts object in XML format, but
+              this time it will only return the YODEL products that are
+              in the <strong>SW18 8LW</strong> postcode region. You should get
+              some XML back that looks like this.
+          </p>
+          <div class="code">
+                &lt;products&gt;<br/>
+                &nbsp;&nbsp;&lt;product&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Parcel&lt;/name&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;description&gt;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Felxible delivery service for larger parcels that are up to 32kg with<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dimensions up to 90x60x60cm<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/description&gt;<br/>
+                &nbsp;&nbsp;&lt;/product&gt;<br/>
+                &lt;/products&gt;<br/>
+          </div>
+          <p>
+              We can see in this example that only our <strong>Mid Range</strong>
+              product is available. Please note that we expand our products and
+              services all the time, and that this is only an example.
           </p>
 
-    <h2>Ideas, thoughts and discussion</h2>
-    <ul>
-        <li>
-            Does not include security or sessions, but take a look at the great
-            work that lee did on the wiki
-        </li>
-        <li>
-            Could consignments be a looser relationship than heirarchal, do we
-            need them at all?
-        </li>
-        <li>
-            Could there be a one to one relatioonship bettween accounts and
-            contract and user - this would be a big simplification, but may mean
-            that the business would have to evolve till all the complexity was
-            refelected in the API
-        </li>
-        <li>
-            Would like to have a business owner for this
-        </li>
-        <li>
-            Colaborate on the creation of the REST API
-        </li>
-        <li>
-            Should the xml files have links back to their parents in the heirarchy?
-            
-        </li>
-    </ul>
-
+          <p>
+              To get a better understanding of how this API could be used in a
+              typical shipping sinario please see the <a href="shipping_walkthrough.html">Shipping Walkthrouugh</a>.
+          </p>
 
             </div>
       </div>
 
             </div>
-        </div>
 
 <div id="footer">
 

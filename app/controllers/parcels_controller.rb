@@ -5,6 +5,7 @@ class ParcelsController < ApplicationController
   end
 
   def show
+    @parcel = Parcel.new :parcel_reference => params[:parcel_reference]
     render :file => "parcels/show.xml.erb"
   end
 

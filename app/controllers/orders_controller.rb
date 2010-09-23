@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.new :order_reference => params[:order_reference]
     render :file => "orders/show.xml.erb"
   end
 

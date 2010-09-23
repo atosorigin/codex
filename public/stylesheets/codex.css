@@ -6,7 +6,6 @@ body {
 a {
     font-family: monospace;
     color: gray;
-    background-color: white;
 }
 
 li{
@@ -98,4 +97,18 @@ textarea {
 
 h1 a {
   text-decoration: none;
+}
+
+.code{
+
+    font-family:monospace;
+    font-size: medium;
+    color: grey;
+    background-color: #d0d0d0;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
