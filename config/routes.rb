@@ -12,9 +12,36 @@ ActionController::Routing::Routes.draw do |map|
   map.products  '/products',                :controller => 'products', :action => 'index'
   map.connect   '/products/:product_name',  :controller => 'products', :action => 'show',  :product_name => /[a-zA-Z0-9 _]+/
 
+  # accounts
+  map.accounts  '/accounts',                  :controller => 'accounts', :action => 'index'
+  map.connect   '/accounts/:accounts_name',   :controller => 'accounts',    :action => 'show',  :account_name => /[a-zA-Z0-9 _]+/
+
   # users
-  map.users     '/users',                   :controller => 'users', :action => 'index'
-  map.connect   '/users/:user_name',        :controller => 'users', :action => 'show',  :user_name => /[a-zA-Z0-9 _]+/
+  map.users     '/accounts/:accounts_name/users',                   
+    :controller => 'users',
+    :action => 'index',
+    :account_name => /[a-zA-Z0-9_\s%]+/
+  map.connect   '/accounts/:accounts_name/users/:user_name',
+    :controller => 'users',
+    :action => 'show',
+    :account_name => /[a-zA-Z0-9_\s%]+/,
+    :user_name => /[a-zA-Z0-9_\s%]+/
+
+  # locations
+  map.locations     '/accounts/:accounts_name/locations',
+    :controller => 'locations',
+    :action => 'index',
+    :account_name => /[a-zA-Z0-9_\s%]+/
+  map.connect   '/accounts/:accounts_name/locations/:location',
+    :controller => 'locations',
+    :action => 'show',
+    :account_name => /[a-zA-Z0-9_\s%]+/,
+    :location => /[a-zA-Z0-9_\s%]+/
+  map.connect   '/accounts/:accounts_name/locations/:location/manifest',
+    :controller => 'locations',
+    :action => 'manifest',
+    :account_name => /[a-zA-Z0-9_\s%]+/,
+    :location => /[a-zA-Z0-9_\s%]+/
 
   # parcels
   map.parcels       '/users/:user_name/orders/:order_reference/consignments/:consignment_id/parcels',
