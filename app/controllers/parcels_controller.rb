@@ -12,5 +12,13 @@ class ParcelsController < ApplicationController
   def label
 
   end
-  
+
+  def printed
+    render :file => "parcels/printed.xml.erb"
+  end
+
+  def consignment
+    render :file => "parcels/consignment.xml.erb"
+  end
+
 end

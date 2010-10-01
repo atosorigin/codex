@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--
-The CRC model indicates that a consignement knows its account and contract,
-however I assume that an account and a contract have a 1 to relationship and
-that an account can also have multiple users, but users cannot be shared accross
-accounts.
--->
 <consignment>
-  <id>3456</id>
+  <account>acme</account>
+  <reference>3456</reference>
   <tracking_reference>HGRSN7562628</tracking_reference>
   <manifest_number>983027</manifest_number>
   <collection_date>03/02/2010</collection_date>
@@ -25,11 +20,6 @@ accounts.
     New York
     NY 6854
   </return_address>
-  <dimensions>
-    <weight>16</weight>
-    <length>1.8</length>
-    <volume>0.3</volume>
-  </dimensions>
   <comments>
     <item>
       <by>Geoff</by>

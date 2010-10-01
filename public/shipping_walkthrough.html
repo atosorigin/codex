@@ -157,25 +157,28 @@ and open the template in the editor.
               his shipping application must login to the codex.
           </p>
           <p>
-              The URL that represents Geoffs account on the codex is <a href="/users/geoff">codex.yodel.co.uk/users/geoff</a>.
+              The URL that represents Geoffs account on the codex is <a href="/accounts/acme/users/geoff">codex.yodel.co.uk/accounts/acme/users/geoff</a>.
               This returns Geoffs information in an XML format.
               Geoffs shipping application has a dashboard which shows the most important information to Geoff.
-              To get the Geoff's current list of the current set of YODEL orders it makes another call to the codex using this API.
-              <a href="/users/geoff/orders">codex.yodel.co.uk/users/geoff/orders</a>.
+              To get the Geoff's current list of the current set of YODEL orders
+              it makes another call to the codex using this API.
+              <a href="/accounts/acme/orders">codex.yodel.co.uk/accounts/acme/orders</a>.
           </p>
       </li>
       <li>
           <div class="heading">Monday 09:15, Geoff creates a new YODEL order</div>
           <p>
               Geoff wants to creates a new order so he clicks on the New order button.
-              This shows a form where Geoff can enter Mr Coyotes information. Geoff fills in the order information supplied for Mr Coyote.
+              This shows a form where Geoff can enter Mr Coyotes information. Geoff
+              fills in the order information supplied for Mr Coyote.
               When he is done he hits save.
           </p>
           <p>
               His shipping application then posts the order information to the codex.
-              The data for the order is in the POST format and is posted to <a href="/users/geoff/orders">codex.yodel.co.uk/users/geoff/orders</a>.
+              The data for the order is in the POST format and is posted to 
+              <a href="/accounts/acme/orders">codex.yodel.co.uk/accounts/acme/orders</a>.
               This is successfull and redirects the response to the following new order, which has now been given an order reference.
-              <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+              <a href="/orders/272625">codex.yodel.co.uk/orders/272625</a>
           </p>
       </li>
       <li>
@@ -183,9 +186,10 @@ and open the template in the editor.
           <p>
               There are no consignments in this order yet so Geoff hits a "new consignment" button.
               He is presented with a a form fills for the consignment information. Once this is complete he presses "save" and the form data is posted to
-              the yodel codex here  <a href="/users/geoff/orders/272625/consignments">codex.yodel.co.uk/users/geoff/orders/272625/consignments</a>
-              Again this is successfull and the codex creates a new consignment id and redirects the response to the details for the new consignment
-              <a href="/users/geoff/orders/272625/consignments/3456">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456</a>
+              the yodel codex here  <a href="/accounts/acme/consignments">codex.yodel.co.uk/accounts/acme/consignments</a>
+              Again this is successfull and the codex creates a new consignment
+              id and redirects the response to the details for the new consignment
+              <a href="/accounts/acme/consignments/3456">codex.yodel.co.uk/accounts/acme/consignments/3456</a>
           </p>
       </li>
       <li>
@@ -195,8 +199,8 @@ and open the template in the editor.
               so he changes the description to "Shipment to Mr Cyote 300 invisible holes"
               Notice that Geoff can leave comments on the order these are posted
               to the codex so that they can be shared accross all his systems, and with Yodel.
-              He adds the parcels to the consignment by POSTing parcel objects to the codex
-              <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+              He adds the parcels to the consignment by POSTing parcel objects to the codex with the consignment reference
+              <a href="/accounts/acme/parcels">codex.yodel.co.uk/accounts/acme/parcels</a>
           </p>
       </li>
       <li>
@@ -204,7 +208,7 @@ and open the template in the editor.
           <p>
               The order allows Geoff to provide addresses for diferent comunication networks such as email and SMS.
               Geoffs system allows him to post updates  to the order for these.
-              <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+              <a href="/orders/272625">codex.yodel.co.uk/orders/272625</a>
               Mr Coyote is very hungery and wants to get on with his plan to catch road runner
               so he asks Geoff to notified him by email and SMS.
           </p>
@@ -215,19 +219,21 @@ and open the template in the editor.
               Geoff had previously created a consignment o three boxes each with 100 dehydrated boulders in it.
               So all geoff has to do is get rid of one parcel. Geoff changes the description and removes one of the parcels from the consignment.
               His systems acheives this by sending a DELETE request to the address of the parcel in the codex.
-              <strong>DELETE</strong> <a href="/users/geoff/orders/272625/consignments/3456/parcels/11102236">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels/11102236</a>, if the call is successfull it returns the informtion about the consignment and the you will notice the delet in the history.
-              <a href="/users/geoff/orders/272625/consignments/3456">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456</a>
+              <strong>DELETE</strong> <a href="/parcels/11102236">codex.yodel.co.uk/parcels/11102236</a>, if
+              the call is successfull it returns the informtion about the consignment
+              and the you will notice the delete in the history.
+              <a href="/accounts/acme/consignments/3456">codex.yodel.co.uk/accounts/acme/consignments/3456</a>
           </p>
       </li>
       <li>
           <div class="heading">Monday 10:45, Geoff needs labels for his parcels</div>
           <p>
             When the codex is posted parcel details it automatically attempts 
-            to get the pre advice <em>discussion needed here</em>. The codex does not only allow users to
+            to get the pre advice. The codex does not only allow users to
             get information about their parcels it can also generate labels.
             As with any other information, the label can be accessed via the ReST API.
-            <a href="/users/geoff/orders/272625/consignments/3456/parcels/11102235/label">
-                codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels/11102235/label
+            <a href="/parcels/11102235/label">
+                codex.yodel.co.uk/parcels/11102235/label
             </a>
           </p>
       </li>
@@ -235,14 +241,15 @@ and open the template in the editor.
           <div class="heading">Monday midnight the van driver is scheduled for the pickup</div>
           <p>
               The YODEL systems are aware of Geoffs order and they schedule a vandriver to come and pick up the parcels.
-              This can be seen in the order status.  <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+              This can be seen in the order status.  
+              <a href="/accounts/acme/orders/272625">codex.yodel.co.uk/accounts/acme/orders/272625</a>
           </p>
       </li>
       <li>
           <div class="heading">Tuesday 08:45  A van arrives at ACME</div>
           <p>
               Then the order is collected by driver Mike who has van id 063428. Again this information is stored and is accessible via the order URL
-              <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+              <a href="/orders/272625">codex.yodel.co.uk/orders/272625</a>
           </p>
       </li>
       <li>
@@ -250,7 +257,7 @@ and open the template in the editor.
           <p>
             Mr Coyote gets notified by email and text, and on wednesday his parcels arrive.
             Geoff can tell the status of the delivery by making a call to the codex looking at the parcels URL.
-            <a href="/users/geoff/orders/272625/consignments/3456/parcels/11102236">codex.yodel.co.uk/users/geoff/orders/272625/consignments/3456/parcels/11102236</a>
+            <a href="/parcels/11102236">codex.yodel.co.uk/parcels/11102236</a>
           </p>
       </li>
       <li>
@@ -258,7 +265,7 @@ and open the template in the editor.
           When the van driver delivers the parcels to Mr Coyote he scans them.
           When all the parcels are successfully delivered the order status is updated.
           Again Geoff can see this by looking at the order.
-          <a href="/users/geoff/orders/272625">codex.yodel.co.uk/users/geoff/orders/272625</a>
+          <a href="/orders/272625">codex.yodel.co.uk/orders/272625</a>
       </li>
     </ol>
 

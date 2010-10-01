@@ -44,25 +44,17 @@ ActionController::Routing::Routes.draw do |map|
     :location => /[a-zA-Z0-9_\s%]+/
 
   # parcels
-  map.parcels       '/users/:user_name/orders/:order_reference/consignments/:consignment_id/parcels',
-     :controller => 'parcels',
-     :action => 'index',
-     :user_name => /[a-zA-Z0-9_\s%]+/,
-     :order_reference => /[0-9]+/,
-     :consignment_id => /[a-zA-Z0-9_\s%]+/
-  map.connect       '/users/:user_name/orders/:order_reference/consignments/:consignment_id/parcels/:parcel_reference',
-     :controller => 'parcels',
-     :action => 'show',
-     :user_name => /[a-zA-Z0-9_\s%]+/,
-     :order_reference => /[0-9]+/,
-     :consignment_id => /[a-zA-Z0-9_\s%]+/,
-     :parcel_reference => /[a-zA-Z0-9_\s%]+/
-  map.connect       '/users/:user_name/orders/:order_reference/consignments/:consignment_id/parcels/:parcel_reference/label',
+  map.parcels     '/accounts/:accounts_name/parcels',
+    :controller => 'parcels',
+    :action => 'index',
+    :account_name => /[a-zA-Z0-9_\s%]+/
+  map.connect     '/accounts/:accounts_name/parcels/printed',
+    :controller => 'parcels',
+    :action => 'printed',
+    :account_name => /[a-zA-Z0-9_\s%]+/
+  map.connect       '/parcels/:parcel_reference/label',
      :controller => 'parcels',
      :action => 'label',
-     :user_name => /[a-zA-Z0-9_\s%]+/,
-     :order_reference => /[0-9]+/,
-     :consignment_id => /[a-zA-Z0-9_\s%]+/,
      :parcel_reference => /[a-zA-Z0-9_\s%]+/
   map.connect       '/parcels/:parcel_reference',
      :controller => 'parcels',
@@ -70,28 +62,40 @@ ActionController::Routing::Routes.draw do |map|
      :parcel_reference => /[a-zA-Z0-9_\s%]+/
 
   # consignments
-  map.consignments   '/users/:user_name/orders/:order_reference/consignments',
-     :controller => 'consignments',
-     :action => 'index',
-     :user_name => /[a-zA-Z0-9_\s%]+/,
-     :order_reference => /[0-9]+/
-  map.connect       '/users/:user_name/orders/:order_reference/consignments/:consignment_id',
+  map.consignments     '/accounts/:accounts_name/consignments',
+    :controller => 'consignments',
+    :action => 'index',
+    :account_name => /[a-zA-Z0-9_\s%]+/
+  map.connect       '/accounts/:accounts_name/consignments/:consignment_id',
      :controller => 'consignments',
      :action => 'show',
-     :user_name => /[a-zA-Z0-9_\s%]+/,
-     :order_reference => /[0-9]+/,
+     :account_name => /[a-zA-Z0-9_\s%]+/,
      :consignment_id => /[a-zA-Z0-9_\s%]+/
+  map.connect       '/accounts/:accounts_name/consignments/:consignment_id/parcels',
+     :controller => 'parcels',
+     :action => 'consignment',
+     :account_name => /[a-zA-Z0-9_\s%]+/,
+     :consignment_id => /[a-zA-Z0-9_\s%]+/
+  #map.consignments   '/users/:user_name/orders/:order_reference/consignments',
+  #   :controller => 'consignments',
+  #   :action => 'index',
+  #   :user_name => /[a-zA-Z0-9_\s%]+/,
+  #   :order_reference => /[0-9]+/
 
   # orders
-  map.orders    '/users/:user_name/orders',
+  map.orders     '/accounts/:accounts_name/orders',
     :controller => 'orders',
     :action => 'index',
-    :user_name => /[a-zA-Z0-9_\s%]+/
-  map.connect   '/users/:user_name/orders/:order_reference',   
-    :controller => 'orders',
-    :action => 'show',
-    :user_name => /[a-zA-Z0-9_\s%]+/,
-    :order_reference => /[0-9]+/
+    :account_name => /[a-zA-Z0-9_\s%]+/
+  #map.orders    '/users/:user_name/orders',
+  #  :controller => 'orders',
+  #  :action => 'index',
+  #  :user_name => /[a-zA-Z0-9_\s%]+/
+  #map.connect   '/users/:user_name/orders/:order_reference',
+  #  :controller => 'orders',
+  #  :action => 'show',
+  #  :user_name => /[a-zA-Z0-9_\s%]+/,
+  #  :order_reference => /[0-9]+/
   map.connect   '/orders/:order_reference',
     :controller => 'orders',
     :action => 'show',
