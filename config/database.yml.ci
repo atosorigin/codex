@@ -1,0 +1,18 @@
+development:
+  adapter: mysql
+  database: codex_development
+  username: root
+  password: Sl!nggit
+
+test:
+  adapter: mysql
+  database: codex_test
+  username: root
+  password: Sl!nggit
+
+cucumber:
+  adapter: mysql
+  database: codex_test
+  username: root
+  password: Sl!nggit
+
