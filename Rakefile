@@ -9,3 +9,6 @@ require 'rake/rdoctask'
 
 require 'tasks/rails'
 
+Dir[File.join(RAILS_ROOT, 'gems', 'ruby','1.8','gems', '*', 'rails', '..', 'tasks', '*.rake')].sort.each do |tasks|
+  load tasks
+end
