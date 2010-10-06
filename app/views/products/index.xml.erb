@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- 
-This responce describes all the products that Yodel offers, the terminology that 
-is being used here meand that at a product is what is described as a service on
-the yodel (HDNL/DHL) websites.
-
-This content is derived from the list of services here
-http://www.hdnl.co.uk/Our-Services/
--->
 <products>
-  <product>
-    <name>Lite</name>
-    <description>
-      Felxible delivery service for parcels that are Up to 2kg
-      with dimensions up to 61x20x45cm
-    </description>
-  </product>
-  <product>
-    <name>Parcel</name>
-    <description>
-      Felxible delivery service for larger parcels that are up to 32kg with
-      dimensions up to 90x60x60cm
-    </description>
-  </product>
-  <product>
-    <name>Mid Range</name>
-    <description>
-      Felxible small and large delivery service allows parcels that are up to
-      32kg with a maximum length of 2.75 metres and maximum volume of 0.45 cubic
-      metres
-    </description>
-  </product>
-  <product>
-    <name>2 Man</name>
-    <description>
-      Two Man delivery service for parcels that are over 32.5kg and up to 130kg.
-    </description>
-  </product>
+<% @gazateer_products.each do |product| %>
+  <product><%= product[:product_line_1] %>-<%= product[:service_description] %></product>
+<% end %>
 </products>
 

@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
+    @gazateer_products = YodelGazetteer.new().get_products()
     render :file => "products/index.xml.erb"
   end
 

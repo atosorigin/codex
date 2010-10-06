@@ -1,21 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- 
-The timeframes will be indexable via a seperate rest api so that users of the 
-API can get a description of the times of service.
-
-service_description => service.service_description,
-               :product_line_1 => service.product_line_1,
-               :product_line_2 => service.product_line_2,
-               :product_code => service.product_code,
-               :feature_code => service.feature_code,
-               :date_code => service.date_code,
-               :day_text => service.day_text,
-               :time_code => service.time_code,
-               :time_text => service.time_text,
-               :handling_feature_text => service.handling_feature_text,
-               :file_type => service.file_type,
-
--->
 <product>
   <name><%= @product.name  %></name>
   <product_code><%= @gazateer_product[:product_code] %></product_code>
@@ -24,59 +7,11 @@ service_description => service.service_description,
     <%= @gazateer_product[:product_line_1] %>
     <%= @gazateer_product[:product_line_2] %>
     <%= @gazateer_product[:service_description] %>
-    <%= @gazateer_product[:handling_feature_text] %>
-
-    <%= @gazateer_product[:date_code] %>
-    <%= @gazateer_product[:day_text] %>
-    <%= @gazateer_product[:time_code] %>
-    <%= @gazateer_product[:time_text] %>
-    <%= @gazateer_product[:handling_feature_text] %>
-    <%= @gazateer_product[:file_type] %>
-
   </description>
-  <restrictions>
-    <weight>
-      <above>2</above>
-      <below>32</below>
-    </weight>
-    <length>
-      <below>2.75</below>
-    </length>
-    <volume>
-      <below>0.45</below>
-    </volume>
-  </restrictions>
-  <time_frames>
-    <twentyfour_hour>
-      <price>£12.00</price>
-    </twentyfour_hour>
-    <fortyeight_hour>
-      <price>£8.00</price>
-    </fortyeight_hour>
-    <morning>
-      <info>delivered AM bettween 07:00 and 12:00 </info>
-      <price>£6.00</price>
-    </morning>
-    <afternoon>
-      <info>delivered PM bettween 12:00 and 17:30 </info>
-      <price>£6.00</price>
-    </afternoon>
-    <evening>
-      <info>delivered PM bettween 17:00 and 21:00 </info>
-      <price>£7.00</price>
-    </evening>
-    <avoid_the_school_run>
-      <info>Timed so that parents can still pick their kids up delivery bettween
-        09:30 and 14:30</info>
-      <price>£6.50</price>
-    </avoid_the_school_run>
-    <nominated_day>
-      <info>Maximum 5 days in advance</info>
-      <price>£8.00</price>
-    </nominated_day>
-    <saturday>
-      <info>Delivered before 17:00 on a saturday</info>
-      <price>£10.00</price>
-    </saturday>
-  </time_frames>
+  <handling_feature><%= @gazateer_product[:handling_feature_text] %></handling_feature>
+  <date_code><%= @gazateer_product[:date_code] %></date_code>
+  <day_text><%= @gazateer_product[:day_text] %></day_text>
+  <time_code><%= @gazateer_product[:time_code] %></time_code>
+  <time_text><%= @gazateer_product[:time_text] %></time_text>
+  <file_type><%= @gazateer_product[:file_type] %></file_type>
 </product>

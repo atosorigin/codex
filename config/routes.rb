@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect   '/products/:product_name',  
     :controller => 'products',
     :action => 'show',
-    :product_name => /[a-zA-Z0-9_\s%\-]+/
+    :product_name => /[a-zA-Z0-9_\s%\-\:]+/
 
   # accounts
   map.accounts  '/accounts',                  :controller => 'accounts', :action => 'index'
