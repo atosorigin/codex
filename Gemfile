@@ -4,7 +4,7 @@ source 'http://gems.github.com'
 
 gem 'rails', '2.3.8'
 gem 'headshift-rails'
-gem 'yodel_gazetteer'
+gem 'yodel_gazetteer', '0.0.10'
 gem 'bundler'
 gem 'erubis'
 gem 'mysql'
