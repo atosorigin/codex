@@ -2,13 +2,37 @@
 <!-- 
 The timeframes will be indexable via a seperate rest api so that users of the 
 API can get a description of the times of service.
+
+service_description => service.service_description,
+               :product_line_1 => service.product_line_1,
+               :product_line_2 => service.product_line_2,
+               :product_code => service.product_code,
+               :feature_code => service.feature_code,
+               :date_code => service.date_code,
+               :day_text => service.day_text,
+               :time_code => service.time_code,
+               :time_text => service.time_text,
+               :handling_feature_text => service.handling_feature_text,
+               :file_type => service.file_type,
+
 -->
 <product>
   <name><%= @product.name  %></name>
+  <product_code><%= @gazateer_product[:product_code] %></product_code>
+  <feature_code><%= @gazateer_product[:feature_code] %></feature_code>
   <description>
-    Felxible small and large delivery service allows parcels that are up to
-    32kg with a maximum length of 2.75 metres and maximum volume of 0.45 cubic
-    metres
+    <%= @gazateer_product[:product_line_1] %>
+    <%= @gazateer_product[:product_line_2] %>
+    <%= @gazateer_product[:service_description] %>
+    <%= @gazateer_product[:handling_feature_text] %>
+
+    <%= @gazateer_product[:date_code] %>
+    <%= @gazateer_product[:day_text] %>
+    <%= @gazateer_product[:time_code] %>
+    <%= @gazateer_product[:time_text] %>
+    <%= @gazateer_product[:handling_feature_text] %>
+    <%= @gazateer_product[:file_type] %>
+
   </description>
   <restrictions>
     <weight>

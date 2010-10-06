@@ -5,12 +5,16 @@ ActionController::Routing::Routes.draw do |map|
   
   # postcodes
   map.products  '/postcodes',                        :controller => 'postcodes', :action => 'index'
+  map.connect   '/postcodes/:postcode/depots',       :controller => 'postcodes', :action => 'depots',  :postcode => /[a-zA-Z0-9_\s%]+/
   map.connect   '/postcodes/:postcode/products',     :controller => 'postcodes', :action => 'products',  :postcode => /[a-zA-Z0-9_\s%]+/
   map.connect   '/postcodes/:postcode',              :controller => 'postcodes', :action => 'show',  :postcode => /[a-zA-Z0-9_\s%]+/
 
   # products
   map.products  '/products',                :controller => 'products', :action => 'index'
-  map.connect   '/products/:product_name',  :controller => 'products', :action => 'show',  :product_name => /[a-zA-Z0-9 _]+/
+  map.connect   '/products/:product_name',  
+    :controller => 'products',
+    :action => 'show',
+    :product_name => /[a-zA-Z0-9_\s%\-]+/
 
   # accounts
   map.accounts  '/accounts',                  :controller => 'accounts', :action => 'index'

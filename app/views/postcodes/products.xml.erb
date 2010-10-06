@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <products>
-  <postcode>SW17 8LW</postcode>
-  <product>Parcel</product>
-  <product>Mid Range</product>
+  <postcode><%=h  @postcode.code %></postcode>
+<% @products.each do |product| %>
+  <product><%=h product[:product_name] %>-<%=h product[:feature_name] %></product>
+<% end %>
 </products>
