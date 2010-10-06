@@ -18,8 +18,10 @@ selectBranches="1" maxMenuDepth="1" ulBaseClass="horizontal"
 }
 .heading
 {
+        margin-top: 10px;
 	font-weight:bold;
 	color: #99CC00;
+        margin-bottom: 10px;
 }
 
 
