@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.resources :tasks
+
   # refer to this page for the discussion document on the codex
   # http://charlotte.jira.com/wiki/display/infofabric/codex+api+-+work+in+progress
   
