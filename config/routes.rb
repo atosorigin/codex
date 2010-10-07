@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
+  path_string_regex = /[a-zA-Z0-9_\s%\-\:\(\)]+/
   map.resources :tasks
 
   # refer to this page for the discussion document on the codex
@@ -7,105 +8,112 @@ ActionController::Routing::Routes.draw do |map|
   
   # postcodes
   map.products  '/postcodes',                        :controller => 'postcodes', :action => 'index'
-  map.connect   '/postcodes/:postcode/depots',       :controller => 'postcodes', :action => 'depots',  :postcode => /[a-zA-Z0-9_\s%]+/
-  map.connect   '/postcodes/:postcode/products',     :controller => 'postcodes', :action => 'products',  :postcode => /[a-zA-Z0-9_\s%]+/
-  map.connect   '/postcodes/:postcode',              :controller => 'postcodes', :action => 'show',  :postcode => /[a-zA-Z0-9_\s%]+/
+  map.connect   '/postcodes/:postcode/depots',       
+    :controller => 'postcodes',
+    :action => 'depots',
+    :postcode => path_string_regex
+  map.connect   '/postcodes/:postcode/products',     
+    :controller => 'postcodes',
+    :action => 'products',
+    :postcode => path_string_regex
+  map.connect   '/postcodes/:postcode',              
+    :controller => 'postcodes',
+    :action => 'show',
+    :postcode => path_string_regex
 
   # products
-  map.products  '/products',                :controller => 'products', :action => 'index'
+  map.products  '/products',                 :controller => 'products', :action => 'index'
   map.connect   '/products/:product_name',  
     :controller => 'products',
     :action => 'show',
-    :product_name => /[a-zA-Z0-9_\s%\-\:]+/
+    :product_name => path_string_regex
 
   # accounts
-  map.accounts  '/accounts',                  :controller => 'accounts', :action => 'index'
-  map.connect   '/accounts/:accounts_name',   :controller => 'accounts',    :action => 'show',  :account_name => /[a-zA-Z0-9 _]+/
+  map.accounts_create   '/accounts',
+    :controller => 'accounts',
+    :action => "create",
+    :conditions => { :method => :post }
+  map.accounts  '/accounts',                  
+    :controller => 'accounts',
+    :action => 'index'
+  map.connect   '/accounts/new',
+    :controller => 'accounts',
+    :action => "new"
+  map.connect   '/accounts/:accounts_name',   
+    :controller => 'accounts',
+    :action => 'show',
+    :account_name => path_string_regex
 
   # users
   map.users     '/accounts/:accounts_name/users',                   
     :controller => 'users',
     :action => 'index',
-    :account_name => /[a-zA-Z0-9_\s%]+/
+    :account_name => path_string_regex
   map.connect   '/accounts/:accounts_name/users/:user_name',
     :controller => 'users',
     :action => 'show',
-    :account_name => /[a-zA-Z0-9_\s%]+/,
-    :user_name => /[a-zA-Z0-9_\s%]+/
+    :account_name => path_string_regex,
+    :user_name => path_string_regex
 
   # locations
   map.locations     '/accounts/:accounts_name/locations',
     :controller => 'locations',
     :action => 'index',
-    :account_name => /[a-zA-Z0-9_\s%]+/
+    :account_name => path_string_regex
   map.connect   '/accounts/:accounts_name/locations/:location',
     :controller => 'locations',
     :action => 'show',
-    :account_name => /[a-zA-Z0-9_\s%]+/,
-    :location => /[a-zA-Z0-9_\s%]+/
+    :account_name => path_string_regex,
+    :location => path_string_regex
   map.connect   '/accounts/:accounts_name/locations/:location/manifest',
     :controller => 'locations',
     :action => 'manifest',
-    :account_name => /[a-zA-Z0-9_\s%]+/,
-    :location => /[a-zA-Z0-9_\s%]+/
+    :account_name => path_string_regex,
+    :location => path_string_regex
 
   # parcels
   map.parcels     '/accounts/:accounts_name/parcels',
     :controller => 'parcels',
     :action => 'index',
-    :account_name => /[a-zA-Z0-9_\s%]+/
+    :account_name => path_string_regex
   map.connect     '/accounts/:accounts_name/parcels/printed',
     :controller => 'parcels',
     :action => 'printed',
-    :account_name => /[a-zA-Z0-9_\s%]+/
+    :account_name => path_string_regex
   map.connect       '/parcels/:parcel_reference/label',
      :controller => 'parcels',
      :action => 'label',
-     :parcel_reference => /[a-zA-Z0-9_\s%]+/
+     :parcel_reference => path_string_regex
   map.connect       '/parcels/:parcel_reference',
      :controller => 'parcels',
      :action => 'show',
-     :parcel_reference => /[a-zA-Z0-9_\s%]+/
+     :parcel_reference => path_string_regex
 
   # consignments
   map.consignments     '/accounts/:accounts_name/consignments',
     :controller => 'consignments',
     :action => 'index',
-    :account_name => /[a-zA-Z0-9_\s%]+/
+    :account_name => path_string_regex
   map.connect       '/accounts/:accounts_name/consignments/:consignment_id',
      :controller => 'consignments',
      :action => 'show',
-     :account_name => /[a-zA-Z0-9_\s%]+/,
-     :consignment_id => /[a-zA-Z0-9_\s%]+/
+     :account_name => path_string_regex,
+     :consignment_id => path_string_regex
   map.connect       '/accounts/:accounts_name/consignments/:consignment_id/parcels',
      :controller => 'parcels',
      :action => 'consignment',
-     :account_name => /[a-zA-Z0-9_\s%]+/,
-     :consignment_id => /[a-zA-Z0-9_\s%]+/
-  #map.consignments   '/users/:user_name/orders/:order_reference/consignments',
-  #   :controller => 'consignments',
-  #   :action => 'index',
-  #   :user_name => /[a-zA-Z0-9_\s%]+/,
-  #   :order_reference => /[0-9]+/
+     :account_name => path_string_regex,
+     :consignment_id => path_string_regex
 
   # orders
   map.orders     '/accounts/:accounts_name/orders',
     :controller => 'orders',
     :action => 'index',
-    :account_name => /[a-zA-Z0-9_\s%]+/
-  #map.orders    '/users/:user_name/orders',
-  #  :controller => 'orders',
-  #  :action => 'index',
-  #  :user_name => /[a-zA-Z0-9_\s%]+/
-  #map.connect   '/users/:user_name/orders/:order_reference',
-  #  :controller => 'orders',
-  #  :action => 'show',
-  #  :user_name => /[a-zA-Z0-9_\s%]+/,
-  #  :order_reference => /[0-9]+/
+    :account_name => path_string_regex
   map.connect   '/orders/:order_reference',
     :controller => 'orders',
     :action => 'show',
-    :order_reference => /[0-9]+/
+    :order_reference => path_string_regex
 
   #default route
   map.root :controller => "products", :action => "index"

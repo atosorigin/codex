@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101005144041) do
+ActiveRecord::Schema.define(:version => 20101007110553) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "address",    :null => false
+    t.string   "postcode",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "destination_exceptions", :force => true do |t|
     t.string  "country_code",  :null => false
@@ -106,7 +114,7 @@ ActiveRecord::Schema.define(:version => 20101005144041) do
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "email"
-    t.string   "password_hash"
+    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

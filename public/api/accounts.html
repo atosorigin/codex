@@ -124,62 +124,25 @@ and open the template in the editor.
                                 <div id="centerSection">
 <div id="content">
 
- <div class="heading">codex.yodel.co.uk/products</div>
+ <div class="heading">codex.yodel.co.uk/accounts</div>
  <p>
-     The product API provides a list of all the YODEL products (i.e. different
-     parcel delivery services) accross all of the postcodes that YODEL services.
+     Blah Blah Blah
  </p>
- <div class="heading">Call</div>
  <div class="code">
-        GET http://codex.yodel.co.uk/products
+        POST http://codex.yodel.co.uk/accounts
  </div>
- <div class="heading">Parameters</div>
- <ul>
-     <li>
-         <b>format</b><br/>
-         Specified the responce type can take the value <b>xml</b> or <b>html</b>
-     </li>
- </ul>
-
- <div class="heading">Responce</div>
- <p>
-    products<br/>
-    - product<br/>
-    - product<br/>
-    - product<br/>
-    - ...<br/>
- </p>
-
- <div class="heading">Example Responce</div>
- <div class="code">
-        &lt;products&gt;<br/>
-        &nbsp;&nbsp;&lt;product&gt;EXPRESS-EXPRESS 24&lt;/product&gt;<br/>
-        &nbsp;&nbsp;&lt;product&gt;NATIONAL-EXPRESS 48&lt;/product&gt;<br/>
-        &lt;/products&gt;<br/>
- </div>
-
- <div class="heading">Example jquery code</div>
- <p>
-     This simple example will get the list of YODEL products and proulate a list
-     inside a list with the id "yodel_products"
- </p>
- <div class="js_code">
-    $.ajax({<br/>
-    &nbsp;&nbsp;type: "GET",<br/>
-    &nbsp;&nbsp;url: 'http://codex.yodel.co.uk/products?format=xml',<br/>
-    &nbsp;&nbsp;dataType: "xml",<br/>
-    &nbsp;&nbsp;success: function(data) {<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$(data).find('product').each(function(){<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#yodel_products').append("&lt;li&gt;" + $(this).text() + "&lt;/li&gt;");<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;})<br/>
-    &nbsp;&nbsp;}<br/>
-    });<br/>
+ <div>
+ <form action="/accounts" method="POST">
+     <input name="account[name]" type="text"><br/>
+     <input name="account[address]" type="text"><br/>
+     <input name="account[postcode]" type="text"><br/>
+     <input name="submit" type="submit" value="submit"><br/>
+ </form>
  </div>
  <div id="try_me" class="button">try me</div>
  <br/>
  <div id="result" class="js_code">
      results
-
  </div>
 
  <script>
