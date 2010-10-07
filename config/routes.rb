@@ -39,7 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect   '/accounts/new',
     :controller => 'accounts',
     :action => "new"
-  map.connect   '/accounts/:accounts_name',   
+  map.connect   '/accounts/:account_name',   
     :controller => 'accounts',
     :action => 'show',
     :account_name => path_string_regex

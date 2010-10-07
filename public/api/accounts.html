@@ -129,15 +129,50 @@ and open the template in the editor.
      Blah Blah Blah
  </p>
  <div class="code">
-        POST http://codex.yodel.co.uk/accounts
+     POST http://codex.yodel.co.uk/accounts<br/>
+     &nbsp;&nbsp;account[name] String<br/>
+     &nbsp;&nbsp;account[address] String<br/>
+     &nbsp;&nbsp;account[postcode] String<br/>
  </div>
- <div>
- <form action="/accounts" method="POST">
-     <input name="account[name]" type="text"><br/>
-     <input name="account[address]" type="text"><br/>
-     <input name="account[postcode]" type="text"><br/>
-     <input name="submit" type="submit" value="submit"><br/>
- </form>
+ <div class="heading">Responce</div>
+ <p>
+    account<br/>
+    - id<br/>
+    - account_name<br/>
+    - address<br/>
+    - postcode<br/>
+ </p>
+ <div class="heading">Example Responce</div>
+ <div class="code">
+&lt;account&gt;<br/>
+&nbsp;&nbsp;&lt;id&gt;43&lt;/id&gt;<br/>
+&nbsp;&nbsp;&lt;account_name&gt;bill&lt;/account_name&gt;<br/>
+&nbsp;&nbsp;&lt;address&gt;nillnln&lt;/address&gt;<br/>
+&nbsp;&nbsp;&lt;postcode&gt;nlnlnl&lt;/postcode&gt;<br/>
+&lt;/account&gt;<br/>
+ </div>
+ <div class="heading">Example jquery code</div>
+ <p>
+     This simple example will create a new account
+ </p>
+ <div class="js_code">
+$.ajax({<br/>
+&nbsp;&nbsp;type: "POST",<br/>
+&nbsp;&nbsp;url: "/accounts",<br/>
+&nbsp;&nbsp;data: {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"account[name]": "fred",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"account[address]": "123 the street",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"account[postcode]": "SW17 8LW"<br/>
+&nbsp;&nbsp;},<br/>
+&nbsp;&nbsp;success: function(data){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$('#result').empty();<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$('#result').append("&lt;ul id='account_details'&gt;&lt;/ul&gt;");<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$('#account_details').append("&lt;li&gt;id " + $(data).find('id').text() + "&lt;/li&gt;");<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$('#account_details').append("&lt;li&gt;name " + $(data).find('account_name').text() + "&lt;/li&gt;");<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$('#account_details').append("&lt;li&gt;address " + $(data).find('address').text() + "&lt;/li&gt;");<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$('#account_details').append("&lt;li&gt;postcode " + $(data).find('postcode').text() + "&lt;/li&gt;");<br/>
+&nbsp;&nbsp;}<br/>
+ });<br/>
  </div>
  <div id="try_me" class="button">try me</div>
  <br/>
@@ -147,21 +182,32 @@ and open the template in the editor.
 
  <script>
 
+function to_string(data){
+    var i;
+    for(i in data){
+        i += "data["+ i +"]=" + data[i];
+    }
+    return i;
+}
+
 $("#try_me").click(function() {
     $.ajax({
-      type: "GET",
-      url: '/products?format=xml',
-      dataType: "xml",
-      success: function(data) {
-
+       type: "POST",
+       url: "/accounts",
+       data: {
+           "account[name]": "fred",
+           "account[address]": "123 the street",
+           "account[postcode]": "SW17 8LW"
+       },
+       success: function(data){
          $('#result').empty();
-         $('#result').append("<ul id='product_list' ></ul>");
-
-         $(data).find('product').each(function(){
-            $('#product_list').append("<li>" + $(this).text() + "</li>");
-         })
-      }
-    });
+         $('#result').append("<ul id='account_details'></ul>");
+         $('#account_details').append("<li>account id is " + $(data).find('id').text() + "</li>");
+         $('#account_details').append("<li>account name is " + $(data).find('account_name').text() + "</li>");
+         $('#account_details').append("<li>address is " + $(data).find('address').text() + "</li>");
+         $('#account_details').append("<li>postcode is " + $(data).find('postcode').text() + "</li>");
+       }
+     });
 });
 
  </script>

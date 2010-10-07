@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <account>
-  <account_reference>ACME0123456</account_reference>
-  <name>ACME</name>
-  <billing_address>
-    123 The highstreet
-    Anytown
-    aplaceshire
-    UK
-    PS2 0DE
-  </billing_address>
-  <credit_limit>
-    £2000
-  </credit_limit>
-  <LDAP>ldap://ldap.acme.com/o=JAIST,c=ACME?sn?base?(sn=ttate*)</LDAP>
-  
+  <id><%= @account.id %></id>
+  <account_name><%= @account.name %></account_name>
+  <address><%= @account.address %></address>
+  <postcode><%= @account.postcode %></postcode>
 </account>
