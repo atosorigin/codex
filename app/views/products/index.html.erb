@@ -1,0 +1,12 @@
+<html>
+   <head>header</head>
+   <body>
+      <p>Product List</p>
+      <ul>
+      <% @gazetteer_products.each do |product| %>
+        <%@prodID = product[:product_line_1] + '-' + product[:service_description] %>
+	<li><a href='/products/<%=@prodID%>'><%=@prodID%></a></li>
+      <% end %>
+      </ul>
+   </body>
+</html>
