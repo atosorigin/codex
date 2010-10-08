@@ -45,10 +45,17 @@ ActionController::Routing::Routes.draw do |map|
     :account_name => path_string_regex
 
   # users
+  map.connect     '/accounts/:account_name/users',
+    :controller => 'users',
+    :action => 'create',
+    :account_name => path_string_regex,
+    :conditions => { :method => :post }
   map.users     '/accounts/:account_name/users',                   
     :controller => 'users',
     :action => 'index',
     :account_name => path_string_regex
+
+
   map.connect   '/accounts/:account_name/users/:username',
     :controller => 'users',
     :action => 'show',

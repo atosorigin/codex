@@ -24,4 +24,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    @account = Account.find_by_name(params[:account_name])
+    @user = @account.users.build(params[:user])
+    if @user.save
+      redirect_to "/accounts/" + @account.name + "/users/" + @user.username
+    else
+      raise ErrorHttp_500, "Error createing new user check the API documentation for codex.yodel.co.uk/api"
+    end
+  end
+
 end
