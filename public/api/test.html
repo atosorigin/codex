@@ -1,0 +1,86 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <script type="text/javascript" src="/javascripts/jQuery.js"></script>
+  </head>
+  <body>
+ <script>
+
+function js_to_html(js){
+    var str = "" + js;
+
+    str = str.substr("function ajax_example(){".length + 2, str.length - "function ajax_example(){".length - 4);
+
+    str = str.split("{").join("{\n");
+    str = str.split(", ").join(",\n");
+    str = str.split(";").join(";\n");
+    
+    arr = str.split("\n");
+    var indentation = 0;
+    for (var i=0;i<arr.length;i++){
+        indentation -= arr[i].split("}").length;
+        for (var j=0; j<indentation; j++)
+            arr[i] = "  " + arr[i];
+        indentation += arr[i].split("{").length;
+    }
+    str = arr.join("\n");
+
+    //str = str.split("<").join("&lt;");
+    //str = str.split(">").join("&gt;");
+    //str = str.split("\t").join("&nbsp;&nbsp;");
+    //str = str.split("\n").join("<br/>");
+    
+    return str;
+}
+
+function html_to_js(markup){
+    var str= markup;
+    //str = str.split("<").join("&lt;");
+    //str = str.split(">").join("&gt;");
+    //str = str.split("\t").join("&nbsp;&nbsp;");
+    //str = str.split("\n").join("<br/>");
+    return str;
+}
+
+$(document).ready(function(){
+    $("#ajax_example").html(js_to_html(ajax_example));
+    $("#try_me").click(function() {
+        alert($("#ajax_example").text());
+        eval($("#ajax_example").text());
+    });
+});
+
+function ajax_example(){
+    $.ajax({
+        type: 'GET',
+        url: '/accounts?format=xml',
+        dataType: 'xml',
+        success: function(data) {
+            $('#result').empty();
+            $('#result').append('<ul id=\'account_list\'></ul>');
+            $(data).find('account').each(function(){
+                $('#account_list').append('<li>' + $(this).text() + '</li>');
+            })
+        },
+       error: function(XMLHttpRequest, textStatus, errorThrown){
+           alert('there has been an error')
+       }
+    });
+}
+
+ </script>
+
+     <textarea id="ajax_example" style="width: 800px; height: 300px;"></textarea>
+     <div id="try_me" class="button">try me</div>
+     <div id="result" class="js_code">
+         results
+     </div>
+
+  </body>
+</html>
