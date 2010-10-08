@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <users>
-  <account>acme</account>
-  <user>geoff</user>
-  <user>sherri</user>
-  <user>gretchen</user>
-  <user>karen</user>
-  <user>patrick</user>
-  <user>elsie</user>
-  <user>hazel</user>
-  <user>malcolm</user>
-  <user>dolores</user>
-  <user>francis</user>
-  <user>sandy</user>
-  <user>marion</user>
-  <user>beth</user>
+  <account><%=h  @account.name  %></account>
+<% @users.each do |user| %>
+  <user><%=h user.username %></user>
+<% end %>
 </users>
 
 

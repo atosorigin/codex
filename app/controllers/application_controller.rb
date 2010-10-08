@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   
   class ErrorHttp_404 < StandardError; end
   class ErrorHttp_422 < StandardError; end
+  class ErrorHttp_500 < StandardError; end
 
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -12,6 +13,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   rescue_from ErrorHttp_404, :with => :render_httperr_404
   rescue_from ErrorHttp_422, :with => :render_httperr_422
+  rescue_from ErrorHttp_500, :with => :render_httperr_500
 
   def render_httperr (errortext, errno)
     @err = errortext
@@ -29,6 +31,11 @@ class ApplicationController < ActionController::Base
 
   def render_httperr_422 (errortext)
      render_httperr(errortext, 422)
+     true
+  end
+
+  def render_httperr_500 (errortext)
+     render_httperr(errortext, 500)
      true
   end
 end

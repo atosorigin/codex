@@ -162,7 +162,11 @@ $.ajax({<br/>
 &nbsp;&nbsp;data: {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"account[name]": "fred",<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"account[address]": "123 the street",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"account[postcode]": "SW17 8LW"<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"account[postcode]": "SW17 8LW",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user[username]": "geoff",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user[email]": "geoff@acme.com",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user[password]": "iloveyodel",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user[password_confirmation]": "iloveyodel"<br/>
 &nbsp;&nbsp;},<br/>
 &nbsp;&nbsp;success: function(data){<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;$('#result').empty();<br/>
@@ -195,9 +199,13 @@ $("#try_me").click(function() {
        type: "POST",
        url: "/accounts",
        data: {
-           "account[name]": "fred",
-           "account[address]": "123 the street",
-           "account[postcode]": "SW17 8LW"
+           "account[name]":     "acme",
+           "account[address]":  "123 the street",
+           "account[postcode]": "SW17 8LW",
+           "user[username]":    "geoff",
+           "user[email]":       "geoff@acme.com",
+           "user[password]":    "iloveacme",
+           "user[password_confirmation]":    "iloveacme"
        },
        success: function(data){
          $('#result').empty();

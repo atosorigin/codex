@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <user>
-  <account>acme</account>
-  <username>geoff</username>
-  <email>geoff@acme.com</email>
-  <role>administrator</role>
+  <account><%=h @account.name %></account>
+  <username><%=h @user.username %></username>
+  <email><%=h @user.email %></email>
+  <role><%=h @user.role %></role>
 </user>
