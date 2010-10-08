@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<products>
+<% @gazateer_products.each do |product| %>
+  <product><%= product[:product_line_1] %>-<%= product[:service_description] %></product>
+<% end %>
+</products>
+

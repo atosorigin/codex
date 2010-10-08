@@ -1,18 +1,13 @@
-<html>
-  <head> Test - put some layout in here </head>
-  <body>
-     <ul>
-       <li> Name = <%= @product.name  %> </li>
-       <li> Product Code = <%= @gazetteer_product[:product_code] %></li>
-       <li> Feature Code = <%= @gazetteer_product[:feature_code] %></li>
-       <li> Description =  <%= @gazetteer_product[:product_line_1] +  @gazetteer_product[:product_line_2] + @gazetteer_product[:service_description] %>
-       <li> Handling Feature = <%= @gazetteer_product[:handling_feature_text] %></li>
-       <li> Date Code = <%= @gazetteer_product[:date_code] %></li>
-       <li> Day Text = <%= @gazetteer_product[:day_text] %></li>
-       <li> Time Code = <%= @gazetteer_product[:time_code] %></li>
-       <li> Time Text = <%= @gazetteer_product[:time_text] %></li>
-       <li> File Type = <%= @gazetteer_product[:file_type] %></li>
-     </ul>
+<ul>
+	<li> Name = <%= @product.name  %> </li>
+	<li> Product Code = <%= @gazetteer_product[:product_code] %></li>
+	<li> Feature Code = <%= @gazetteer_product[:feature_code] %></li>
+	<li> Description =  <%= @gazetteer_product[:product_line_1] +  @gazetteer_product[:product_line_2] + @gazetteer_product[:service_description] %>
+	<li> Handling Feature = <%= @gazetteer_product[:handling_feature_text] %></li>
+	<li> Date Code = <%= @gazetteer_product[:date_code] %></li>
+	<li> Day Text = <%= @gazetteer_product[:day_text] %></li>
+	<li> Time Code = <%= @gazetteer_product[:time_code] %></li>
+	<li> Time Text = <%= @gazetteer_product[:time_text] %></li>
+	<li> File Type = <%= @gazetteer_product[:file_type] %></li>
+</ul>
 
-  </body>
-</html>
