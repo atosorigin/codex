@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
   def show 
     @account = Account.find_by_name(params[:account_name])
     if @account.nil?
-      render :file => "shared/404.html.erb", :status=>404
+      raise ErrorHttp_404, "Cannot find account name"
     else
       render :file => "accounts/show.xml.erb"
     end
