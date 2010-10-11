@@ -8,11 +8,11 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>The Yodel Codex</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheets/codex.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="stylesheets/hdnCSS.css">
-        <link rel="stylesheet" type="text/css" href="stylesheets/COGNavigation.css">
-        <script type="text/javascript" src="javascripts/jQuery.js"></script>
-        <script type="text/javascript" src="stylesheets/qtobject.js"></script>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/codex.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/hdnCSS.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/COGNavigation.css">
+        <script type="text/javascript" src="/javascripts/jQuery.js"></script>
+        <script type="text/javascript" src="/stylesheets/qtobject.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
                 $("#topMenuNews").addClass("currentLeft");
@@ -36,7 +36,7 @@ and open the template in the editor.
                 <div id="top">
                     <div id="siteLogo">
                         <a href="/">
-                            <img style="border: medium none;" src="images/yodellogo.gif">
+                            <img style="border: medium none;" src="/images/yodellogo.gif">
                         </a>
                         <div id="headTextLeft">
                             Welcome to the Yodel developer resource center.
@@ -55,12 +55,12 @@ and open the template in the editor.
                                     </li>
                                     <li id="topMenuUnrivalledChoice" >
                                         <div id="topMenuUnrivalledChoiceDiv">
-                                             <div><a href="shipping_walkthrough.html">Shipping Example</a></div>
+                                             <div><a href="/shipping_walkthrough.html">Shipping Example</a></div>
                                         </div>
                                     </li>
                                     <li id="topMenuNews">
                                         <div id="topMenuNewsDiv">
-                                            <div><a href="codex_api.html">Codex API</a>
+                                            <div><a href="/codex_api.html">Codex API</a>
                                             </div>
                                         </div>
                                     </li>
@@ -122,90 +122,88 @@ and open the template in the editor.
                                         service remains unchanged.</div>
                                 </div>
                                 <div id="centerSection">
-                                    <div id="content">
-                                         <img src="images/api.png" alt="yodel codex"/>
-                                         <p>
-                                             TODO: Authentication and permissions<br/>
-                                             TODO: paging<br/>
-                                             TODO: query string filters<br/>
-                                         </p>
+<div id="content">
 
-                                        <div class="heading">YODEL products and services</div>
-                                        <ul>
-                                            <li>
-                                                list of the Yodel products i.e. services <br/>
-                                                <a href="/api/get_products">GET codex.yodel.co.uk/products</a>
-                                            </li>
-                                            <li>
-                                                information on a specific product <br/>
-                                                <a href="/api/get_product.html">GET codex.yodel.co.uk/products/[product name]</a>
-                                            </li>
-                                            <li>
-                                                Products available to a specific post code <br/>
-                                                <a href="/api/get_postcode_products">GET codex.yodel.co.uk/postcodes/[postcode]/products</a>
-                                            </li>
-                                        </ul>
+ <div class="heading">DELETE codex.yodel.co.uk/accounts/[account name]/users/[username]</div>
+ <p>
+     Deletes a user from an account, note that any changes that may have been
+     made by the user will still exist within the data.
+ </p>
+ <div class="heading">Call</div>
+ <div class="code">
+        DELETE http://codex.yodel.co.uk/accounts/[account name]/users/[username]
+ </div>
+ <div class="heading">Parameters</div>
+ <ul>
+     <li>none</li>
+ </ul>
 
+ <div class="heading">Responce</div>
+ <p>
+      <div class="code">
+        user<br/>
+        <ul>
+            <li>account - the name of the account that the user belongs to e.g. acme</li>
+            <li>username - the user name for the user i.e. the string that they use to log in with.</li>
+            <li>email - the full email address of the user e.g. andy@foo.bar</li>
+            <li>role - the permission group for the user</li>
+        </ul>
+      </div>
+ </p>
 
-                                        <div class="heading">Account, Users and Locations</div>
-                                        <ul>
-                                            <li>
-                                                Createing a new account<br/>
-                                                <a href="/api/post_accounts">POST codex.yodel.co.uk/accounts</a>
-                                            </li>
-                                            <li>
-                                                Reteriving the details for an account <br/>
-                                                <a href="/api/get_account">GET codex.yodel.co.uk/accounts/[account name]</a>
-                                            </li>
-                                            <li>
-                                                Getting the list of users for an account <br/>
-                                                <a href="/api/get_account_users">GET codex.yodel.co.uk/accounts/[account name]/users</a>
-                                            </li>
-                                            <li>
-                                                Getting the details for a specific user <br/>
-                                                <a href="/api/get_account_user">GET codex.yodel.co.uk/accounts/[account name]/users/[username]</a>
-                                            </li>
-                                            <li>
-                                                Creating a new user <br/>
-                                                <a href="/api/post_account_users">POST codex.yodel.co.uk/accounts/[account name]/users</a>
-                                            </li>
-                                            <li>
-                                                Deleting a user <br/>
-                                                <a href="/api/delete_account_user">DELETE codex.yodel.co.uk/accounts/[account name]/users[username]</a>
-                                            </li>
-                                            <li>all the locations for an account <br/><a href="/accounts/acme/locations">codex.yodel.co.uk/accounts/acme/locations</a></li>
-                                            <li>The details for a specific location <br/><a href="/accounts/acme/locations/ACME Heasquarters">codex.yodel.co.uk/accounts/acme/locations/ACME Heasquarters</a></li>
-                                            <li>The manifest for a location <br/><a href="/accounts/acme/locations/ACME Heasquarters/manifest">codex.yodel.co.uk/accounts/acme/locations/ACME Heasquarters/manifest</a></li>
-                                        </ul>
+ <div class="heading">Example Responce</div>
+ <div class="code">
+&lt;user&gt;<br/>
+&nbsp;&nbsp;&lt;account&gt;acme&lt;/account&gt;<br/>
+&nbsp;&nbsp;&lt;username&gt;admin&lt;/username&gt;<br/>
+&nbsp;&nbsp;&lt;email&gt;geoff@acme.com&lt;/email&gt;<br/>
+&lt;role&gt;administrator&lt;/role&gt;<br/>
+ </div>
 
-                                        <div class="heading">Information about the YODEL parcel network</div>
-                                        <ul>
-                                            <li>list of Postcodes that yodel provides services to <br/><a href="/postcodes">codex.yodel.co.uk/postcodes</a></li>
-                                            <li>Details for a specific postcode <br/><a href="/postcodes/SW17 8LW">codex.yodel.co.uk/postcodes/SW17 8LW</a></li>
-                                        </ul>
+ <div class="heading">Example jquery code</div>
+ <p>
+     In this example we will get the details for the acme admin user and present them in a
+     simple list
+ </p>
+ <div class="js_code">
+    $.ajax({<br/>
+    &nbsp;&nbsp;type: "GET",<br/>
+    &nbsp;&nbsp;url: 'http://codex.yodel.co.uk/products/EXPRESS-EXPRESS 24?format=xml',<br/>
+    &nbsp;&nbsp;dataType: "xml",<br/>
+    &nbsp;&nbsp;success: function(data) {<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').empty();<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').append("&lt;ul id='user' &gt;&lt;/ul&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#user').append("&lt;li&gt;username=" + $(data).find('username').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#user').append("&lt;li&gt;email=" + $(data).find('email').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#user').append("&lt;li&gt;role=" + $(data).find('role').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;}<br/>
+    });<br/>
+ </div>
+ <div id="try_me" class="button">try me</div>
+ <br/>
+ <div id="result" class="js_code">
+     results
 
-                                        <div class="heading">Parcels</div>
-                                        <ul>
-                                            <li>Information on a specific parcel <br/><a href="/parcels/11102235">codex.yodel.co.uk/parcels/11102235</a></li>
-                                            <li>The label for a parcel<br/><a href="/parcels/11102235/label">codex.yodel.co.uk/parcels/11102235/label</a></li>
-                                            <li>a list of parcels for an account <br/><a href="/accounts/acme/parcels">codex.yodel.co.uk/accounts/acme/parcels</a></li>
-                                            <li>a list of the parcels that have had a label generated for an account <br/><a href="/accounts/acme/parcels/printed">codex.yodel.co.uk/accounts/acme/parcels/printed</a></li>
-                                        </ul>
+ </div>
 
-                                        <div class="heading">Orders and consignments</div>
-                                        <ul>
-                                            <li>Information on a specific order <br/><a href="/orders/272625">codex.yodel.co.uk/orders/272625</a></li>
-                                            <li>a list of an accounts orders <br/><a href="/accounts/acme/orders">codex.yodel.co.uk/accounts/acme/orders</a></li>
-                                            <li>The consigments for an account <br/><a href="/accounts/acme/consignments">codex.yodel.co.uk/accounts/acme/consignments</a></li>
-                                            <li>A specific consignment for an account <br/><a href="/accounts/acme/consignments/3456">codex.yodel.co.uk/accounts/acme/consignments/3456</a></li>
-                                            <li>A list of parcels for a specific consignment <br/><a href="/accounts/acme/consignments/3456/parcels">codex.yodel.co.uk/accounts/acme/consignments/3456/parcels</a></li>
-                                        </ul>
-                                        <div class="heading">Administration API's</div>
-                                        <ul>
-                                            <li>list of all yodel accounts<br/><a href="/accounts">codex.yodel.co.uk/accounts</a></li>
-                                        </ul>
+ <script>
 
+$("#try_me").click(function() {
+    $.ajax({
+      type: "DELETE",
+      url: '/accounts/acme/users/billy',
+      dataType: "xml",
+      success: function(data) {
+         $('#result').empty();
+         $('#result').append("<ul id='user' ></ul>");
+         //$('#user').append("<li>username=" + $(data).find('username').text() + "</li>");
+         //$('#user').append("<li>email=" + $(data).find('email').text() + "</li>");
+         //$('#user').append("<li>role=" + $(data).find('role').text() + "</li>");
+      }
+    });
+});
 
+ </script>
 
 
 

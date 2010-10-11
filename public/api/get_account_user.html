@@ -124,73 +124,87 @@ and open the template in the editor.
                                 <div id="centerSection">
 <div id="content">
 
- <div class="heading">POST codex.yodel.co.uk/accounts/[account]/users</div>
+ <div class="heading">GET codex.yodel.co.uk/accounts/[account name]/users/[username]</div>
  <p>
-    Add a new user to an existing account
+     Gets the details for a specific user who belongs to an account. Please note
+     that user name is only unique within an account.
  </p>
+ <div class="heading">Call</div>
  <div class="code">
-     POST http://codex.yodel.co.uk/accounts/[account name]/users<br/>
-     &nbsp;&nbsp;user[username] String<br/>
-     &nbsp;&nbsp;user[email] String<br/>
-     &nbsp;&nbsp;user[role] String<br/>
-     &nbsp;&nbsp;user[password] String<br/>
-     &nbsp;&nbsp;user[password_confirmation] String<br/>
+        GET http://codex.yodel.co.uk/accounts/[account name]/users/[username]?format=[xml,html]
  </div>
+ <div class="heading">Parameters</div>
+ <ul>
+     <li>
+         <b>optional format</b><br/>
+         Specified the responce type can take the value <b>xml</b> or <b>html</b>
+         Note that is defaults to html format.
+     </li>
+ </ul>
+
  <div class="heading">Responce</div>
  <p>
-    user<br/>
-    - account_name<br/>
-    - username<br/>
-    - email<br/>
-    - role<br/>
+      <div class="code">
+        user<br/>
+        <ul>
+            <li>account - the name of the account that the user belongs to e.g. acme</li>
+            <li>username - the user name for the user i.e. the string that they use to log in with.</li>
+            <li>email - the full email address of the user e.g. andy@foo.bar</li>
+            <li>role - the permission group for the user</li>
+        </ul>
+      </div>
  </p>
+
  <div class="heading">Example Responce</div>
  <div class="code">
- blah
+&lt;user&gt;<br/>
+&nbsp;&nbsp;&lt;account&gt;acme&lt;/account&gt;<br/>
+&nbsp;&nbsp;&lt;username&gt;admin&lt;/username&gt;<br/>
+&nbsp;&nbsp;&lt;email&gt;geoff@acme.com&lt;/email&gt;<br/>
+&lt;role&gt;administrator&lt;/role&gt;<br/>
  </div>
+
  <div class="heading">Example jquery code</div>
  <p>
-     Blah Blah Blah
+     In this example we will get the details for the acme admin user and present them in a
+     simple list
  </p>
  <div class="js_code">
-blah
+    $.ajax({<br/>
+    &nbsp;&nbsp;type: "GET",<br/>
+    &nbsp;&nbsp;url: 'http://codex.yodel.co.uk/products/EXPRESS-EXPRESS 24?format=xml',<br/>
+    &nbsp;&nbsp;dataType: "xml",<br/>
+    &nbsp;&nbsp;success: function(data) {<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').empty();<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').append("&lt;ul id='user' &gt;&lt;/ul&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#user').append("&lt;li&gt;username=" + $(data).find('username').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#user').append("&lt;li&gt;email=" + $(data).find('email').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#user').append("&lt;li&gt;role=" + $(data).find('role').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;}<br/>
+    });<br/>
  </div>
  <div id="try_me" class="button">try me</div>
  <br/>
  <div id="result" class="js_code">
      results
+
  </div>
 
  <script>
 
-function to_string(data){
-    var i;
-    for(i in data){
-        i += "data["+ i +"]=" + data[i];
-    }
-    return i;
-}
-
 $("#try_me").click(function() {
     $.ajax({
-       type: "POST",
-       url: "/accounts/acme/users",
-       data: {
-           "user[username]":    "billy",
-           "user[email]":       "billy@acme.co.uk",
-           "user[role]":        "shipper",
-           "user[password]":    "iloveyodel",
-           "user[password_confirmation]":    "iloveyodel"
-       },
-       success: function(data){
+      type: "GET",
+      url: '/accounts/acme/users/admin?format=xml',
+      dataType: "xml",
+      success: function(data) {
          $('#result').empty();
-         $('#result').append("<ul id='user_details'></ul>");
-         //$('#account_details').append("<li>account id is " + $(data).find('id').text() + "</li>");
-         //$('#account_details').append("<li>account name is " + $(data).find('account_name').text() + "</li>");
-         //$('#account_details').append("<li>address is " + $(data).find('address').text() + "</li>");
-         //$('#account_details').append("<li>postcode is " + $(data).find('postcode').text() + "</li>");
-       }
-     });
+         $('#result').append("<ul id='user' ></ul>");
+         $('#user').append("<li>username=" + $(data).find('username').text() + "</li>");
+         $('#user').append("<li>email=" + $(data).find('email').text() + "</li>");
+         $('#user').append("<li>role=" + $(data).find('role').text() + "</li>");
+      }
+    });
 });
 
  </script>

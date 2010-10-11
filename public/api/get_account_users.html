@@ -124,15 +124,13 @@ and open the template in the editor.
                                 <div id="centerSection">
 <div id="content">
 
- <div class="heading">codex.yodel.co.uk/accounts/[account name]</div>
+ <div class="heading">GET codex.yodel.co.uk/accounts/[account name]/users</div>
  <p>
-     Will return to you the information asociated with a specific account. Note
-     that it only provides top level account information not a detailed breakdown of
-     the users locations etc. 
+     Will provide a list of all the users for the specified account.
  </p>
  <div class="heading">Call</div>
  <div class="code">
-        GET http://codex.yodel.co.uk/accounts/[account name]?format=[xml,html]
+        GET http://codex.yodel.co.uk/accounts/[account name]/users?format=[xml,html]
  </div>
  <div class="heading">Parameters</div>
  <ul>
@@ -146,30 +144,30 @@ and open the template in the editor.
  <div class="heading">Responce</div>
  <p>
       <div class="code">
-        account<br/>
+        users<br/>
         <ul>
-            <li>id - the numeric account id e.g. 102</li>
-            <li>account_name - e.g. acme</li>
-            <li>address - the main addres for billing and corespondance. e.g. 123 the hisghstreet, anytown, someshire</li>
-            <li>postcode - post code for the main address</li>
+            <li>account - the name of teh account that has the users</li>
+            <li>user</li>
+            <li>user</li>
+            <li>user</li>
+            <li>...</li>
         </ul>
       </div>
  </p>
 
  <div class="heading">Example Responce</div>
  <div class="code">
-&lt;account&gt;<br/>
-&nbsp;&nbsp;&lt;id&gt;1&lt;/id&gt;<br/>
-&nbsp;&nbsp;&lt;account_name&gt;acme&lt;/account_name&gt;<br/>
-&nbsp;&nbsp;&lt;address&gt;123 the street&lt;/address&gt;<br/>
-&nbsp;&nbsp;&lt;postcode&gt;SW17 8LW&lt;/postcode&gt;<br/>
-&lt;/account&gt;<br/>
+&lt;users&gt;<br/>
+&nbsp;&nbsp;&lt;account&gt;acme&lt;/account&gt;<br/>
+&nbsp;&nbsp;&lt;user&gt;admin&lt;/user&gt;<br/>
+&nbsp;&nbsp;&lt;user&gt;geoff&lt;/user&gt;<br/>
+&nbsp;&nbsp;&lt;user&gt;katie&lt;/user&gt;<br/>
+&nbsp;&nbsp;&lt;user&gt;dolf&lt;/user&gt;<br/>
+&lt;/users&gt;<br/>
  </div>
-
  <div class="heading">Example jquery code</div>
  <p>
-     This example list the product information for the EXPRESS-EXPRESS 24 product
-     in a simple list
+     This example lists the users for the acme account
  </p>
  <div class="js_code">
     $.ajax({<br/>
@@ -178,10 +176,11 @@ and open the template in the editor.
     &nbsp;&nbsp;dataType: "xml",<br/>
     &nbsp;&nbsp;success: function(data) {<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;$('#result').empty();<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').append("&lt;ul id='account_info' &gt;&lt;/ul&gt;");<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$('#account_info').append("&lt;li&gt;account name is " + $(data).find('account_name').text() + "&lt;/li&gt;");<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$('#account_info').append("&lt;li&gt;address is " + $(data).find('address').text() + "&lt;/li&gt;");<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$('#account_info').append("&lt;li&gt;postcode is " + $(data).find('postcode').text() + "&lt;/li&gt;");<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$('#result').append("&lt;h2&gt;users for the acme account&lt;/h2&gt;");<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$('#result').append("&lt;ul id='users' &gt;&lt;/ul&gt;");<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$(data).find('user').each(function(){<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#users').append("&lt;li&gt;" + $(this).text() + "&lt;/li&gt;");<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;})<br/>
     &nbsp;&nbsp;}<br/>
     });<br/>
@@ -198,14 +197,15 @@ and open the template in the editor.
 $("#try_me").click(function() {
     $.ajax({
       type: "GET",
-      url: '/accounts/acme?format=xml',
+      url: '/accounts/acme/users?format=xml',
       dataType: "xml",
       success: function(data) {
          $('#result').empty();
-         $('#result').append("<ul id='account_info' ></ul>");
-         $('#account_info').append("<li>account name is " + $(data).find('account_name').text() + "</li>");
-         $('#account_info').append("<li>address is " + $(data).find('address').text() + "</li>");
-         $('#account_info').append("<li>postcode is " + $(data).find('postcode').text() + "</li>");
+         $('#result').append("<h2>users for the acme account</h2>");
+         $('#result').append("<ul id='users' ></ul>");
+         $(data).find('user').each(function(){
+            $('#users').append("<li>" + $(this).text() + "</li>");
+         });
       }
     });
 });
