@@ -1,0 +1,28 @@
+<p>
+  <b>Url:</b>
+  <%=h @api.url %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @api.description %>
+</p>
+
+<p>
+  <b>Method:</b>
+  <%=h @api.method %>
+</p>
+
+<p>
+  <b>Response:</b>
+  <%=h @api.response %>
+</p>
+
+<p>
+  <b>Jquery:</b>
+  <%=h @api.jquery %>
+</p>
+
+
+<%= link_to 'Edit', edit_api_path(@api) %> |
+<%= link_to 'Back', apis_path %>

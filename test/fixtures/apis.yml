@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  url: MyString
+  description: MyText
+  method: MyString
+  response: MyText
+  jquery: MyText
+
+two:
+  url: MyString
+  description: MyText
+  method: MyString
+  response: MyText
+  jquery: MyText

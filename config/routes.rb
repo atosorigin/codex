@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :apis
+
+  map.resources :ap_is
+
 
   path_string_regex = /[a-zA-Z0-9_\s%\-\:\(\)]+/
   map.resources :tasks
