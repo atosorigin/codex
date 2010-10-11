@@ -8,11 +8,11 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>The Yodel Codex</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheets/codex.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="stylesheets/hdnCSS.css">
-        <link rel="stylesheet" type="text/css" href="stylesheets/COGNavigation.css">
-        <script type="text/javascript" src="javascripts/jQuery.js"></script>
-        <script type="text/javascript" src="stylesheets/qtobject.js"></script>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/codex.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/hdnCSS.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/COGNavigation.css">
+        <script type="text/javascript" src="/javascripts/jQuery.js"></script>
+        <script type="text/javascript" src="/stylesheets/qtobject.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
                 $("#topMenuNews").addClass("currentLeft");
@@ -36,7 +36,7 @@ and open the template in the editor.
                 <div id="top">
                     <div id="siteLogo">
                         <a href="/">
-                            <img style="border: medium none;" src="images/yodellogo.gif">
+                            <img style="border: medium none;" src="/images/yodellogo.gif">
                         </a>
                         <div id="headTextLeft">
                             Welcome to the Yodel developer resource center.
@@ -55,12 +55,12 @@ and open the template in the editor.
                                     </li>
                                     <li id="topMenuUnrivalledChoice" >
                                         <div id="topMenuUnrivalledChoiceDiv">
-                                             <div><a href="shipping_walkthrough.html">Shipping Example</a></div>
+                                             <div><a href="/shipping_walkthrough.html">Shipping Example</a></div>
                                         </div>
                                     </li>
                                     <li id="topMenuNews">
                                         <div id="topMenuNewsDiv">
-                                            <div><a href="codex_api.html">Codex API</a>
+                                            <div><a href="/codex_api.html">Codex API</a>
                                             </div>
                                         </div>
                                     </li>
@@ -122,82 +122,121 @@ and open the template in the editor.
                                         service remains unchanged.</div>
                                 </div>
                                 <div id="centerSection">
-                                    <div id="content">
-                                         <img src="images/api.png" alt="yodel codex"/>
-                                         <p>
-                                             TODO: Authentication and permissions<br/>
-                                             TODO: paging<br/>
-                                             TODO: query string filters<br/>
-                                         </p>
+<div id="content">
 
-                                        <div class="heading">YODEL products and services</div>
-                                        <ul>
-                                            <li>
-                                                list of the Yodel products i.e. services <br/>
-                                                <a href="/api/get_products">GET codex.yodel.co.uk/products</a>
-                                            </li>
-                                            <li>
-                                                information on a specific product <br/>
-                                                <a href="/api/get_product.html">GET codex.yodel.co.uk/products/[product name]</a>
-                                            </li>
-                                            <li>
-                                                Products available to a specific post code <br/>
-                                                <a href="/api/get_postcode_products">GET codex.yodel.co.uk/postcodes/[postcode]/products</a>
-                                            </li>
-                                        </ul>
+ <div class="heading">codex.yodel.co.uk/products/[product name]</div>
+ <p>
+     This API will give you all the information on a specific product, including
+     its restrictions and product codes needed for integration with legacy DHL
+     systems.
+ </p>
+ <div class="heading">Call</div>
+ <div class="code">
+        GET http://codex.yodel.co.uk/products/[product name]?format=[xml,html]
+ </div>
+ <div class="heading">Parameters</div>
+ <ul>
+     <li>
+         <b>optional format</b><br/>
+         Specified the responce type can take the value <b>xml</b> or <b>html</b>
+         Note that is defaults to html format.
+     </li>
+ </ul>
 
+ <div class="heading">Responce</div>
+ <p>
+      <div class="code">
+        product<br/>
+        <ul>
+            <li>name - The name of the product e.g. EXPRESS-EXPRESS 24</li>
+            <li>product_code - e.g. 01</li>
+            <li>feature_code - e.g.  02</li>
+            <li>description - e.g.  EXPRESSEXPRESS 24EXPRESS 24</li>
+            <li>handling_feature - e.g.  STD</li>
+            <li>date_code - e.g.  0</li>
+            <li>day_text - e.g. </li>
+            <li>time_code - e.g.  0</li>
+            <li>time_text - e.g. </li>
+            <li>file_type - e.g.  UKD</li>
+        </ul>
+      </div>
+ </p>
 
-                                        <div class="heading">Account, Users and Locations</div>
-                                        <ul>
-                                            <li>
-                                                Createing a new account<br/>
-                                                <a href="/api/post_accounts">POST codex.yodel.co.uk/accounts</a>
-                                            </li>
-                                            <li>
-                                                Reteriving the details for an account <br/>
-                                                <a href="/api/get_account">GET codex.yodel.co.uk/accounts/[account name]</a>
-                                            </li>
-                                            <li>
-                                                Getting the list of users for an account <br/>
-                                                <a href="/api/get_account_users">GET codex.yodel.co.uk/accounts/[account name]/users</a>
-                                            </li>
-                                            <li>
-                                                Getting the details for a specific user <br/>
-                                                <a href="/accounts/acme/users/geoff">GET codex.yodel.co.uk/accounts/acme/users/geoff</a>
-                                            </li>
-                                            <li>all the locations for an account <br/><a href="/accounts/acme/locations">codex.yodel.co.uk/accounts/acme/locations</a></li>
-                                            <li>The details for a specific location <br/><a href="/accounts/acme/locations/ACME Heasquarters">codex.yodel.co.uk/accounts/acme/locations/ACME Heasquarters</a></li>
-                                            <li>The manifest for a location <br/><a href="/accounts/acme/locations/ACME Heasquarters/manifest">codex.yodel.co.uk/accounts/acme/locations/ACME Heasquarters/manifest</a></li>
-                                        </ul>
+ <div class="heading">Example Responce</div>
+ <div class="code">
+&lt;product&gt;<br/>
+&nbsp;&nbsp;&lt;name&gt;EXPRESS-EXPRESS 24&lt;/name&gt;<br/>
+&nbsp;&nbsp;&lt;product_code&gt;01&lt;/product_code&gt;<br/>
+&nbsp;&nbsp;&lt;feature_code&gt;02&lt;/feature_code&gt;<br/>
+&nbsp;&nbsp;&lt;description&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;EXPRESS<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;EXPRESS 24<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;EXPRESS 24<br/>
+&nbsp;&nbsp;&lt;/description&gt;<br/>
+&nbsp;&nbsp;&lt;handling_feature&gt;STD&lt;/handling_feature&gt;<br/>
+&nbsp;&nbsp;&lt;date_code&gt;0&lt;/date_code&gt;<br/>
+&nbsp;&nbsp;&lt;day_text/&gt;<br/>
+&nbsp;&nbsp;&lt;time_code&gt;0&lt;/time_code&gt;<br/>
+&nbsp;&nbsp;&lt;time_text/&gt;<br/>
+&nbsp;&nbsp;&lt;file_type&gt;UKD&lt;/file_type&gt;<br/>
+&lt;/product&gt;<br/>
+ </div>
 
-                                        <div class="heading">Information about the YODEL parcel network</div>
-                                        <ul>
-                                            <li>list of Postcodes that yodel provides services to <br/><a href="/postcodes">codex.yodel.co.uk/postcodes</a></li>
-                                            <li>Details for a specific postcode <br/><a href="/postcodes/SW17 8LW">codex.yodel.co.uk/postcodes/SW17 8LW</a></li>
-                                        </ul>
+ <div class="heading">Example jquery code</div>
+ <p>
+     This example list the product information for the EXPRESS-EXPRESS 24 product
+     in a simple list
+ </p>
+ <div class="js_code">
+    $.ajax({<br/>
+    &nbsp;&nbsp;type: "GET",<br/>
+    &nbsp;&nbsp;url: 'http://codex.yodel.co.uk/products/EXPRESS-EXPRESS 24?format=xml',<br/>
+    &nbsp;&nbsp;dataType: "xml",<br/>
+    &nbsp;&nbsp;success: function(data) {<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').empty();<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').append(<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;ul id='product_info' &gt;&lt;/ul&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#product_info').append(<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;li&gt;product name is " + $(data).find('name').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#product_info').append(<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;li&gt;product code is " + $(data).find('product_code').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#product_info').append(<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;li&gt;feature code is " + $(data).find('feature_code').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#product_info').append(<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;li&gt;handeling feature is " + $(data).find('handling_feature').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#product_info').append(<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;li&gt;description is " + $(data).find('description').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;})<br/>
+    &nbsp;&nbsp;}<br/>
+    });<br/>
+ </div>
+ <div id="try_me" class="button">try me</div>
+ <br/>
+ <div id="result" class="js_code">
+     results
 
-                                        <div class="heading">Parcels</div>
-                                        <ul>
-                                            <li>Information on a specific parcel <br/><a href="/parcels/11102235">codex.yodel.co.uk/parcels/11102235</a></li>
-                                            <li>The label for a parcel<br/><a href="/parcels/11102235/label">codex.yodel.co.uk/parcels/11102235/label</a></li>
-                                            <li>a list of parcels for an account <br/><a href="/accounts/acme/parcels">codex.yodel.co.uk/accounts/acme/parcels</a></li>
-                                            <li>a list of the parcels that have had a label generated for an account <br/><a href="/accounts/acme/parcels/printed">codex.yodel.co.uk/accounts/acme/parcels/printed</a></li>
-                                        </ul>
+ </div>
 
-                                        <div class="heading">Orders and consignments</div>
-                                        <ul>
-                                            <li>Information on a specific order <br/><a href="/orders/272625">codex.yodel.co.uk/orders/272625</a></li>
-                                            <li>a list of an accounts orders <br/><a href="/accounts/acme/orders">codex.yodel.co.uk/accounts/acme/orders</a></li>
-                                            <li>The consigments for an account <br/><a href="/accounts/acme/consignments">codex.yodel.co.uk/accounts/acme/consignments</a></li>
-                                            <li>A specific consignment for an account <br/><a href="/accounts/acme/consignments/3456">codex.yodel.co.uk/accounts/acme/consignments/3456</a></li>
-                                            <li>A list of parcels for a specific consignment <br/><a href="/accounts/acme/consignments/3456/parcels">codex.yodel.co.uk/accounts/acme/consignments/3456/parcels</a></li>
-                                        </ul>
-                                        <div class="heading">Administration API's</div>
-                                        <ul>
-                                            <li>list of all yodel accounts<br/><a href="/accounts">codex.yodel.co.uk/accounts</a></li>
-                                        </ul>
-                                    
+ <script>
 
+$("#try_me").click(function() {
+    $.ajax({
+      type: "GET",
+      url: '/products/EXPRESS-EXPRESS 24?format=xml',
+      dataType: "xml",
+      success: function(data) {
+         $('#result').empty();
+         $('#result').append("<ul id='product_info' ></ul>");
+         $('#product_info').append("<li>product name is " + $(data).find('name').text() + "</li>");
+         $('#product_info').append("<li>product code is " + $(data).find('product_code').text() + "</li>");
+         $('#product_info').append("<li>feature code is " + $(data).find('feature_code').text() + "</li>");
+         $('#product_info').append("<li>handeling feature is " + $(data).find('handling_feature').text() + "</li>");
+         $('#product_info').append("<li>description is " + $(data).find('description').text() + "</li>");
+      }
+    });
+});
+
+ </script>
 
 
 

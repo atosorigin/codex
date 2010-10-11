@@ -124,53 +124,64 @@ and open the template in the editor.
                                 <div id="centerSection">
 <div id="content">
 
- <div class="heading">codex.yodel.co.uk/products</div>
+ <div class="heading">codex.yodel.co.uk/accounts/[account name]</div>
  <p>
-     The product API provides a list of all the YODEL products (i.e. different
-     parcel delivery services) accross all of the postcodes that YODEL services.
+     Will return to you the information asociated with a specific account. Note
+     that it only provides top level account information not a detailed breakdown of
+     the users locations etc. 
  </p>
  <div class="heading">Call</div>
  <div class="code">
-        GET http://codex.yodel.co.uk/products
+        GET http://codex.yodel.co.uk/accounts/[account name]?format=[xml,html]
  </div>
  <div class="heading">Parameters</div>
  <ul>
      <li>
-         <b>format</b><br/>
+         <b>optional format</b><br/>
          Specified the responce type can take the value <b>xml</b> or <b>html</b>
+         Note that is defaults to html format.
      </li>
  </ul>
 
  <div class="heading">Responce</div>
  <p>
-    products<br/>
-    - product<br/>
-    - product<br/>
-    - product<br/>
-    - ...<br/>
+      <div class="code">
+        account<br/>
+        <ul>
+            <li>id - the numeric account id e.g. 102</li>
+            <li>account_name - e.g. acme</li>
+            <li>address - the main addres for billing and corespondance. e.g. 123 the hisghstreet, anytown, someshire</li>
+            <li>postcode - post code for the main address</li>
+        </ul>
+      </div>
  </p>
 
  <div class="heading">Example Responce</div>
  <div class="code">
-        &lt;products&gt;<br/>
-        &nbsp;&nbsp;&lt;product&gt;EXPRESS-EXPRESS 24&lt;/product&gt;<br/>
-        &nbsp;&nbsp;&lt;product&gt;NATIONAL-EXPRESS 48&lt;/product&gt;<br/>
-        &lt;/products&gt;<br/>
+&lt;account&gt;<br/>
+&nbsp;&nbsp;&lt;id&gt;1&lt;/id&gt;<br/>
+&nbsp;&nbsp;&lt;account_name&gt;acme&lt;/account_name&gt;<br/>
+&nbsp;&nbsp;&lt;address&gt;123 the street&lt;/address&gt;<br/>
+&nbsp;&nbsp;&lt;postcode&gt;SW17 8LW&lt;/postcode&gt;<br/>
+&lt;/account&gt;<br/>
  </div>
 
  <div class="heading">Example jquery code</div>
  <p>
-     This simple example will get the list of YODEL products and proulate a list
-     inside a list with the id "yodel_products"
+     This example list the product information for the EXPRESS-EXPRESS 24 product
+     in a simple list
  </p>
  <div class="js_code">
     $.ajax({<br/>
     &nbsp;&nbsp;type: "GET",<br/>
-    &nbsp;&nbsp;url: 'http://codex.yodel.co.uk/products?format=xml',<br/>
+    &nbsp;&nbsp;url: 'http://codex.yodel.co.uk/products/EXPRESS-EXPRESS 24?format=xml',<br/>
     &nbsp;&nbsp;dataType: "xml",<br/>
     &nbsp;&nbsp;success: function(data) {<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$(data).find('product').each(function(){<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#yodel_products').append("&lt;li&gt;" + $(this).text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').empty();<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').append("&lt;ul id='account_info' &gt;&lt;/ul&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#account_info').append("&lt;li&gt;account name is " + $(data).find('account_name').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#account_info').append("&lt;li&gt;address is " + $(data).find('address').text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$('#account_info').append("&lt;li&gt;postcode is " + $(data).find('postcode').text() + "&lt;/li&gt;");<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;})<br/>
     &nbsp;&nbsp;}<br/>
     });<br/>
@@ -187,16 +198,14 @@ and open the template in the editor.
 $("#try_me").click(function() {
     $.ajax({
       type: "GET",
-      url: '/products?format=xml',
+      url: '/accounts/acme?format=xml',
       dataType: "xml",
       success: function(data) {
-
          $('#result').empty();
-         $('#result').append("<ul id='product_list' ></ul>");
-
-         $(data).find('product').each(function(){
-            $('#product_list').append("<li>" + $(this).text() + "</li>");
-         })
+         $('#result').append("<ul id='account_info' ></ul>");
+         $('#account_info').append("<li>account name is " + $(data).find('account_name').text() + "</li>");
+         $('#account_info').append("<li>address is " + $(data).find('address').text() + "</li>");
+         $('#account_info').append("<li>postcode is " + $(data).find('postcode').text() + "</li>");
       }
     });
 });

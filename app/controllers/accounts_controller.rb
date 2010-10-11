@@ -5,7 +5,9 @@ class AccountsController < ApplicationController
   end
 
   def index
+    @accounts = Account.all
     render :file => "accounts/index.xml.erb"
+
   end
 
   def show 

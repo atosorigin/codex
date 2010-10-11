@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <accounts>
-  <account>acme</account>
-  <account>Collect Plus</account>
-  <account>GAP</account>
-  <account>new look</account>
-  <account>Marks and spencers</account>
-  <account>Amazon</account>
-  <account>Shop Direct</account>
-  <account>Littlewoods</account>
-  <account>Next</account>
-  <account>Smith and Smith</account>
-  <account>The red box company</account>
-  <account>Body Shop</account>
-  <account>Bay Trading Company</account>
-  <account>Toys R Us</account>
+<% @accounts.each do |account| %>
+  <account><%=h account.name %></account>
+<% end %>
 </accounts>
 
 
