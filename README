@@ -7,3 +7,18 @@ http://charlotte.jira.com/wiki/display/infofabric/Architecture
 
 For project information and discussion about the codex please look here
 http://charlotte.jira.com/wiki/display/infofabric/Codex
+
+
+Before running this application dont forget to add the gazetteer tables
+This will add the gazetteer migrations to your db folder
+   script/generate gazetteer
+
+then rake the database
+   rake db:migrate
+
+then activate the gazetteer
+   rake gazetteer:activate["001"]
+
+then
+   bundle exec rake "gazetteer:import[gems/ruby/1.8/gems/yodel_gazetteer-0.0.10/test_data/gazetteer_test_001.zip, gems/ruby/1.8/gems/yodel_gazetteer-0.0.10/test_data/service_exchange_test_001.zip]"
+
