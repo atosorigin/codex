@@ -1,6 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :apis
 
+  map.resources :apis
+
+  map.resources :apis
+
+  map.resources :apis
+
+  map.resources :apis
+
+  map.resources :apis
+
   map.resources :ap_is
 
 

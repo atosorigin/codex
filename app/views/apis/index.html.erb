@@ -2,18 +2,20 @@
 
 <table>
   <tr>
+    <th>Controller</th>
+    <th>Method</th>
     <th>Url</th>
     <th>Description</th>
-    <th>Method</th>
     <th>Response</th>
     <th>Jquery</th>
   </tr>
 
 <% @apis.each do |api| %>
   <tr>
+    <td><%=h api.controller %></td>
+    <td><%=h api.method %></td>
     <td><%=h api.url %></td>
     <td><%=h api.description %></td>
-    <td><%=h api.method %></td>
     <td><%=h api.response %></td>
     <td><%=h api.jquery %></td>
     <td><%= link_to 'Show', api %></td>

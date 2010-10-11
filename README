@@ -2,23 +2,46 @@
 The YODEL codex is a secure API that allows you to automatically place orders 
 with YODEL, get labels for your parcels and track their delivery status.
 
-You cal learn more about the codex's role in the overall YODEL architecture here
+You can learn more about the codex's role in the overall YODEL architecture here
 http://charlotte.jira.com/wiki/display/infofabric/Architecture
 
 For project information and discussion about the codex please look here
 http://charlotte.jira.com/wiki/display/infofabric/Codex
 
+Download the code from github
 
-Before running this application dont forget to add the gazetteer tables
-This will add the gazetteer migrations to your db folder
+   git clone git@github.com:Junius/codex.git
+
+Then make sure bundler is installed
+
+   apt-get install bundler
+
+Once bundler is installed it is necessary to install the gems
+
+   bundle install gems
+
+Before creating the database we need to perform some config steps. Namely specify the database connection. 
+
+   cp config/database.ci.yml config/database.yml
+
+The edit the newly created database.yml to include the environment details specific to you
+
+The create the database using rake
+
+   rake db:migrate
+
+Now that the environment is ready, we need to load the gazetteer data. In test mode run the following
+   
    script/generate gazetteer
 
-then rake the database
-   rake db:migrate
+then load the test gazetteer data
+
+bundle exec rake "gazetteer:import[gems/ruby/1.8/gems/yodel_gazetteer-0.0.11/test_data/gazetteer_test_001.zip, gems/ruby/1.8/gems/yodel_gazetteer-0.0.11/test_data/service_exchange_test_001.zip]"
 
 then activate the gazetteer
    rake gazetteer:activate["001"]
 
-then
-   bundle exec rake "gazetteer:import[gems/ruby/1.8/gems/yodel_gazetteer-0.0.10/test_data/gazetteer_test_001.zip, gems/ruby/1.8/gems/yodel_gazetteer-0.0.10/test_data/service_exchange_test_001.zip]"
+Once all that is done the application should be ready to run. 
+   script/server
 
+WIN!!!

@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   rescue_from YodelGazetteer::NoActiveGazetteerError, :with => :redirect_no_gaz
 
   def index
-    @response = YodelGazetteer.new().get_products()
+    @gazetteer_products = YodelGazetteer.new().get_products()
   end
 
   def show

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101008134259) do
+ActiveRecord::Schema.define(:version => 20101011142207) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",       :null => false
@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(:version => 20101008134259) do
   end
 
   create_table "apis", :force => true do |t|
+    t.string   "controller"
+    t.string   "method"
     t.string   "url"
     t.text     "description"
-    t.string   "method"
     t.text     "response"
     t.text     "jquery"
     t.datetime "created_at"
@@ -125,8 +126,6 @@ ActiveRecord::Schema.define(:version => 20101008134259) do
     t.string   "username"
     t.string   "email"
     t.string   "password_hash"
-    t.string   "role"
-    t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
