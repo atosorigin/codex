@@ -25,12 +25,12 @@ class ApplicationController < ActionController::Base
   end 
 
   def render_httperr_404 (errortext)
-     render_httperr (errortext, 404)
+     render_httperr (errortext,404)
      true
   end
 
   def render_httperr_422 (errortext)
-     render_httperr(errortext, 422)
+     render_httperr(errortext,422)
      true
   end
 

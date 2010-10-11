@@ -1,8 +1,88 @@
-<h2>Product List</h2>
-	<ul>
-		<% @gazetteer_products.each do |product| %>
-			<%@prodID = product[:product_line_1] + '-' + product[:service_description] %>
-			<li><a href='/products/<%=@prodID%>'><%=@prodID%></a></li>
-		<% end %>
-	</ul>
+<div class="heading">codex.yodel.co.uk/products</div> <!-- Retrieve the path -->
+ <p>
+     <!-- Descpription -->
+     This retrieves all available products
+ </p>
+
+ <div class="heading">Call</div>
+ <div class="code">
+        <%=self.class.to_s %>
+ </div>
+
+ <div class="heading">Parameters</div>
+ <ul>
+     <li>
+         <b>format</b><br/>
+         Specified the response type can take the value <b>xml</b> or <b>html</b>
+     </li>
+ </ul>
+
+ <div class="heading">Response</div>
+ 	<div class="code"><%%></div>
+	
+
+ <div class="heading">Example Response</div>
+ <div class="code">
+        &lt;products&gt;<br/>
+        &nbsp;&nbsp;&lt;product&gt;EXPRESS-EXPRESS 24&lt;/product&gt;<br/>
+        &nbsp;&nbsp;&lt;product&gt;NATIONAL-EXPRESS 48&lt;/product&gt;<br/>
+        &lt;/products&gt;<br/>
+ </div>
+
+ <div class="heading">Example jquery code</div>
+ <p>
+     This simple example will get the list of YODEL products and proulate a list
+     inside a list with the id "yodel_products"
+ </p>
+ <div class="js_code">
+    $.ajax({<br/>
+    &nbsp;&nbsp;type: "GET",<br/>
+    &nbsp;&nbsp;url: 'http://codex.yodel.co.uk/products?format=xml',<br/>
+    &nbsp;&nbsp;dataType: "xml",<br/>
+    &nbsp;&nbsp;success: function(data) {<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;$(data).find('product').each(function(){<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#yodel_products').append("&lt;li&gt;" + $(this).text() + "&lt;/li&gt;");<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;})<br/>
+    &nbsp;&nbsp;}<br/>
+    });<br/>
+ </div>
+ <div id="try_me" class="button">try me</div>
+ <br/>
+ <div id="result" class="js_code">
+     results
+
+ </div>
+
+ <script>
+
+$("#try_me").click(function() {
+    $.ajax({
+      type: "GET",
+      url: '/products?format=xml',
+      dataType: "xml",
+      success: function(data) {
+
+         $('#result').empty();
+         $('#result').append("<ul id='product_list' ></ul>");
+
+         $(data).find('product').each(function(){
+            $('#product_list').append("<li>" + $(this).text() + "</li>");
+         })
+      }
+    });
+});
+
+ </script>
+
+
+
+
+
+      </div>
+
+            </div>
+        </div>
+
+
+
 
