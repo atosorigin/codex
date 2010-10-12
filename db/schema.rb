@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101011142207) do
+ActiveRecord::Schema.define(:version => 20101012085827) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",       :null => false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20101011142207) do
     t.text     "jquery"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "group"
   end
 
   create_table "destination_exceptions", :force => true do |t|

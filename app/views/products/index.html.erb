@@ -21,14 +21,14 @@
     </ul>
 
     <div class="heading">Response</div>
-    <div class="code"><%=@api.response%></div>
+    <div class="code"><%=simple_format(@api.response).gsub("  ","&nbsp;")%></div>
 	
     <div class="heading">Example jquery code</div>
         <p>
         This simple example of an Ajax call invoke this Restful API. It is demonstrated below also
         </p>
         <div class="js_code">
-            <%=@api.jquery.gsub(/\n/, '<br/>')%>
+            <%=simple_format(@api.jquery).gsub("  ","&nbsp;")%>
             <br/>
         </div>
         <div id="try_me" class="button">try me</div> 
