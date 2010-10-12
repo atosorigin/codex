@@ -127,6 +127,8 @@ ActiveRecord::Schema.define(:version => 20101012085827) do
     t.string   "username"
     t.string   "email"
     t.string   "password_hash"
+    t.string   "role"
+    t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

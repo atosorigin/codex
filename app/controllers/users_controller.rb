@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         raise ErrorHttp_404, "Cannot find the user :" +params[:username] + " for account " + @account.name
       else
         @user.destroy
-        render :file => "users/show.xml.erb"
+        redirect_to "/accounts/" + @account.name + "/users"
       end
     end
   end

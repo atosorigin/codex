@@ -70,15 +70,15 @@ ActionController::Routing::Routes.draw do |map|
     :account_name => path_string_regex
   map.connect   '/accounts/:account_name/users/:username',
     :controller => 'users',
-    :action => 'show',
-    :account_name => path_string_regex,
-    :username => path_string_regex
-  map.connect   '/accounts/:account_name/users/:username',
-    :controller => 'users',
     :action => 'destroy',
     :account_name => path_string_regex,
     :username => path_string_regex,
     :conditions => { :method => :delete }
+  map.connect   '/accounts/:account_name/users/:username',
+    :controller => 'users',
+    :action => 'show',
+    :account_name => path_string_regex,
+    :username => path_string_regex
 
   # locations
   map.locations     '/accounts/:accounts_name/locations',
