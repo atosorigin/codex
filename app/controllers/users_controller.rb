@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @account = Account.find_by_name(params[:account_name])
     @user = @account.users.build(params[:user])
     if @user.save
-      redirect_to "/accounts/" + @account.name + "/users/" + @user.username
+      redirect_to URI.escape("/accounts/" + @account.name + "/users/" + @user.username)
     else
       raise ErrorHttp_500, "Error createing new user check the API documentation for codex.yodel.co.uk/api"
     end
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         raise ErrorHttp_404, "Cannot find the user :" +params[:username] + " for account " + @account.name
       else
         @user.destroy
-        redirect_to "/accounts/" + @account.name + "/users"
+        redirect_to URI.escape("/accounts/" + @account.name + "/users")
       end
     end
   end

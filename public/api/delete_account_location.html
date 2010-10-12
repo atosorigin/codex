@@ -1,0 +1,87 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="ctl00_ctl00_ctl00_ContentPlaceHolderDefault_head">
+        <title>The Yodel Codex</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/codex.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/hdnCSS.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/COGNavigation.css">
+        <script type="text/javascript" src="/javascripts/jQuery.js"></script>
+    </head>
+    <body>
+        <div id="logoutContainer">
+        </div>
+        <div id="main">
+            <div id="body">
+<div id="centerSection">
+<div id="content">
+
+ <div class="heading">DELETE codex.yodel.co.uk/accounts/[account name]/locations/[location name]</div>
+ <p>
+     deletes a location for an account
+ </p>
+ <div class="heading">Call</div>
+ <div class="code">
+     DELETE http://codex.yodel.co.uk/accounts/[account name]/locations/[location name]
+ </div>
+ <div class="heading">Parameters</div>
+ <ul>
+     <li>none
+     </li>
+ </ul>
+
+ <div class="heading">Responce</div>
+ <p>
+      <div class="code">
+        locations<br/>
+        <ul>
+            <li>account</li>
+            <li>location</li>
+            <li>location</li>
+            <li>location</li>
+            <li>...</li>
+        </ul>
+      </div>
+ </p>
+
+ <div class="heading">Example Responce</div>
+ <pre class="code">
+ </pre>
+ <div class="heading">Example jquery code</div>
+ <div id="try_me" class="button">try me</div>
+ <br/>
+ <div id="result" class="js_code">
+     results
+ </div>
+
+ <script>
+
+$("#try_me").click(function() {
+    $.ajax({
+       type: "DELETE",
+       url: "/accounts/acme/locations/South West wharehouse",
+       data: {},
+       success: function(data){
+         $('#result').empty();
+         $('#result').append("<h2>success</h2>");
+       }
+     });
+ });
+
+ </script>
+
+
+
+
+
+      </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>

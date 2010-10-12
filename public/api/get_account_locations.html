@@ -1,0 +1,103 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="ctl00_ctl00_ctl00_ContentPlaceHolderDefault_head">
+        <title>The Yodel Codex</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/codex.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/hdnCSS.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/COGNavigation.css">
+        <script type="text/javascript" src="/javascripts/jQuery.js"></script>
+    </head>
+    <body>
+        <div id="logoutContainer">
+        </div>
+        <div id="main">
+            <div id="body">
+<div id="centerSection">
+<div id="content">
+
+ <div class="heading">GET codex.yodel.co.uk/accounts/[account name]/locations</div>
+ <p>
+     Will list all of the loactions that have been registered for an account
+ </p>
+ <div class="heading">Call</div>
+ <div class="code">
+        GET http://codex.yodel.co.uk/accounts/[account name]/locations?format=[xml,html]
+ </div>
+ <div class="heading">Parameters</div>
+ <ul>
+     <li>
+         <b>optional format</b><br/>
+         Specified the responce type can take the value <b>xml</b> or <b>html</b>
+         Note that is defaults to html format.
+     </li>
+ </ul>
+
+ <div class="heading">Responce</div>
+ <p>
+      <div class="code">
+        locations<br/>
+        <ul>
+            <li>account - the name of the account that has the users</li>
+            <li>location</li>
+            <li>location</li>
+            <li>location</li>
+            <li>...</li>
+        </ul>
+      </div>
+ </p>
+
+ <div class="heading">Example Responce</div>
+ <pre class="code">
+<locations>
+<account>acme</account>
+<location>ACME Headquarters</location>
+<location>ACME Main Warehouse</location>
+<location>Specalist Warehouse</location>
+</locations>
+ </pre>
+ <div class="heading">Example jquery code</div>
+ <p>
+     This example lists the users for the acme account
+ </p>
+ <div id="try_me" class="button">try me</div>
+ <br/>
+ <div id="result" class="js_code">
+     results
+ </div>
+
+ <script>
+
+$("#try_me").click(function() {
+    $.ajax({
+      type: "GET",
+      url: '/accounts/acme/locations?format=xml',
+      dataType: "xml",
+      success: function(data) {
+         $('#result').empty();
+         $('#result').append("<h2>locations for the acme account</h2>");
+         $('#result').append("<ul id='locations'></ul>");
+         $(data).find('location').each(function(){
+            $('#locations').append("<li>" + $(this).text() + "</li>");
+         });
+      }
+    });
+});
+
+ </script>
+
+
+
+
+
+      </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -81,16 +81,27 @@ ActionController::Routing::Routes.draw do |map|
     :username => path_string_regex
 
   # locations
-  map.locations     '/accounts/:accounts_name/locations',
+  map.connect     '/accounts/:account_name/locations',
     :controller => 'locations',
-    :action => 'index',
-    :account_name => path_string_regex
-  map.connect   '/accounts/:accounts_name/locations/:location',
+    :action => 'create',
+    :account_name => path_string_regex,
+    :conditions => { :method => :post }
+  map.connect   '/accounts/:account_name/locations/:location',
+    :controller => 'locations',
+    :action => 'destroy',
+    :account_name => path_string_regex,
+    :location => path_string_regex,
+    :conditions => { :method => :delete }
+  map.connect   '/accounts/:account_name/locations/:location',
     :controller => 'locations',
     :action => 'show',
     :account_name => path_string_regex,
     :location => path_string_regex
-  map.connect   '/accounts/:accounts_name/locations/:location/manifest',
+  map.locations     '/accounts/:account_name/locations',
+    :controller => 'locations',
+    :action => 'index',
+    :account_name => path_string_regex
+  map.connect   '/accounts/:account_name/locations/:location/manifest',
     :controller => 'locations',
     :action => 'manifest',
     :account_name => path_string_regex,

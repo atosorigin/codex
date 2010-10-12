@@ -21,8 +21,7 @@ Api.create([{
            <product></product>
         </products>',
       :jquery =>
-        '$("#try_me").click(function() {
-          $.ajax({
+        '$.ajax({
             type: "GET",
             url: \'/products?format=xml\',
             dataType: "xml",
@@ -35,8 +34,7 @@ Api.create([{
                   $(\'#product_list\').append("<li>" + $(this).text() + "</li>");
                })
             }
-         });
-      });'
+         });'
     }])
 
 Api.create([{

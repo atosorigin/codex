@@ -7,5 +7,6 @@ class Account < ActiveRecord::Base
   validates_presence_of :postcode
 
   has_many :users
+  has_many :locations
 
 end

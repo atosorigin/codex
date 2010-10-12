@@ -126,8 +126,8 @@ and open the template in the editor.
 
  <div class="heading">POST codex.yodel.co.uk/accounts</div>
  <p>
-     Will create a new account, and administrator user. If successfull it
-     will redirect you to /accounts/[account name]
+     Will create a new account, administrator user and default location. 
+     If successfull it will redirect you to /accounts/[account name]
  </p>
  <div class="code">
      POST http://codex.yodel.co.uk/accounts<br/>
@@ -137,6 +137,9 @@ and open the template in the editor.
      &nbsp;&nbsp;admin[email] String<br/>
      &nbsp;&nbsp;admin[password] String<br/>
      &nbsp;&nbsp;admin[password_confirmation] String<br/>
+     &nbsp;&nbsp;location[name]" String<br/>
+     &nbsp;&nbsp;location[address]"  String<br/>
+     &nbsp;&nbsp;location[postcode]"  String<br/>
  </div>
  <div class="heading">Responce</div>
  <p>
@@ -160,27 +163,7 @@ and open the template in the editor.
      This simple example will create a new account
  </p>
  <div class="js_code">
-$.ajax({<br/>
-&nbsp;&nbsp;type: "POST",<br/>
-&nbsp;&nbsp;url: "/accounts",<br/>
-&nbsp;&nbsp;data: {<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"account[name]": "fred",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"account[address]": "123 the street",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"account[postcode]": "SW17 8LW",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin[username]": "geoff",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin[email]": "geoff@acme.com",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin[password]": "iloveyodel",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"admin[password_confirmation]": "iloveyodel"<br/>
-&nbsp;&nbsp;},<br/>
-&nbsp;&nbsp;success: function(data){<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;$('#result').empty();<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;$('#result').append("&lt;ul id='account_details'&gt;&lt;/ul&gt;");<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;$('#account_details').append("&lt;li&gt;id " + $(data).find('id').text() + "&lt;/li&gt;");<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;$('#account_details').append("&lt;li&gt;name " + $(data).find('account_name').text() + "&lt;/li&gt;");<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;$('#account_details').append("&lt;li&gt;address " + $(data).find('address').text() + "&lt;/li&gt;");<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;$('#account_details').append("&lt;li&gt;postcode " + $(data).find('postcode').text() + "&lt;/li&gt;");<br/>
-&nbsp;&nbsp;}<br/>
- });<br/>
+Lee - take it from the js code - view source
  </div>
  <div id="try_me" class="button">try me</div>
  <br/>
@@ -208,7 +191,10 @@ $("#try_me").click(function() {
            "account[postcode]": "SW17 8LW",
            "admin[email]":       "geoff@acme.com",
            "admin[password]":    "iloveyodel",
-           "admin[password_confirmation]":    "iloveyodel"
+           "admin[password_confirmation]":    "iloveyodel",
+           "location[name]":       "ACME Headquarters",
+           "location[address]":    "123 Highstreet, Anytown, Somwhereshire",
+           "location[postcode]":   "HN6 7TY"
        },
        success: function(data){
          $('#result').empty();

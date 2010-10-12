@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <location>
-  <account>acme</account>
-  <address>
-    123 Highstreet
-    Anytown
-    Somwhereshire
-  </address>
-  <postcode>HN6 7TY</postcode>
-  <meter>56965478</meter>
+  <account><%=h @account.name %></account>
+  <name><%=h @location.name %></name>
+  <address><%=h @location.address %></address>
+  <postcode><%=h @location.postcode %></postcode>
 </location>

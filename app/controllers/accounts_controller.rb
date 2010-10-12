@@ -24,8 +24,9 @@ class AccountsController < ApplicationController
     @user = @account.users.build(params[:admin])
     @user.username = "admin"
     @user.role = "administrator"
-    if @account.save && @user.save
-      redirect_to "/accounts/" + @account.name
+    @location = @account.locations.build(params[:location])
+    if @account.save && @user.save && @location.save
+      redirect_to URI.escape("/accounts/" + @account.name)
     else
       raise ErrorHttp_500, "Error createing new account, check the API documentation for codex.yodel.co.uk/accounts"
     end

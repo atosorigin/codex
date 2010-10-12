@@ -166,18 +166,7 @@ and open the template in the editor.
      simple list
  </p>
  <div class="js_code">
-    $.ajax({<br/>
-    &nbsp;&nbsp;type: "GET",<br/>
-    &nbsp;&nbsp;url: 'http://codex.yodel.co.uk/products/EXPRESS-EXPRESS 24?format=xml',<br/>
-    &nbsp;&nbsp;dataType: "xml",<br/>
-    &nbsp;&nbsp;success: function(data) {<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').empty();<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$('#result').append("&lt;ul id='user' &gt;&lt;/ul&gt;");<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$('#user').append("&lt;li&gt;username=" + $(data).find('username').text() + "&lt;/li&gt;");<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$('#user').append("&lt;li&gt;email=" + $(data).find('email').text() + "&lt;/li&gt;");<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;$('#user').append("&lt;li&gt;role=" + $(data).find('role').text() + "&lt;/li&gt;");<br/>
-    &nbsp;&nbsp;}<br/>
-    });<br/>
+     see the view source
  </div>
  <div id="try_me" class="button">try me</div>
  <br/>
@@ -195,10 +184,7 @@ $("#try_me").click(function() {
       dataType: "xml",
       success: function(data) {
          $('#result').empty();
-         $('#result').append("<ul id='user' ></ul>");
-         //$('#user').append("<li>username=" + $(data).find('username').text() + "</li>");
-         //$('#user').append("<li>email=" + $(data).find('email').text() + "</li>");
-         //$('#user').append("<li>role=" + $(data).find('role').text() + "</li>");
+         $('#result').append("<h2>success</h2>");
       }
     });
 });

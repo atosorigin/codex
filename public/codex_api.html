@@ -124,86 +124,104 @@ and open the template in the editor.
                                 <div id="centerSection">
                                     <div id="content">
                                          <img src="images/api.png" alt="yodel codex"/>
-                                         <p>
-                                             TODO: Authentication and permissions<br/>
-                                             TODO: paging<br/>
-                                             TODO: query string filters<br/>
-                                         </p>
+ <p>
+     TODO: Authentication and permissions<br/>
+     TODO: paging<br/>
+     TODO: query string filters<br/>
+ </p>
 
-                                        <div class="heading">YODEL products and services</div>
-                                        <ul>
-                                            <li>
-                                                list of the Yodel products i.e. services <br/>
-                                                <a href="/api/get_products">GET codex.yodel.co.uk/products</a>
-                                            </li>
-                                            <li>
-                                                information on a specific product <br/>
-                                                <a href="/api/get_product.html">GET codex.yodel.co.uk/products/[product name]</a>
-                                            </li>
-                                            <li>
-                                                Products available to a specific post code <br/>
-                                                <a href="/api/get_postcode_products">GET codex.yodel.co.uk/postcodes/[postcode]/products</a>
-                                            </li>
-                                        </ul>
+<div class="heading">YODEL products and services</div>
+<ul>
+    <li>
+        list of the Yodel products i.e. services <br/>
+        <a href="/api/get_products">GET codex.yodel.co.uk/products</a>
+    </li>
+    <li>
+        information on a specific product <br/>
+        <a href="/api/get_product.html">GET codex.yodel.co.uk/products/[product name]</a>
+    </li>
+    <li>
+        Products available to a specific post code <br/>
+        <a href="/api/get_postcode_products">GET codex.yodel.co.uk/postcodes/[postcode]/products</a>
+    </li>
+</ul>
 
 
-                                        <div class="heading">Account, Users and Locations</div>
-                                        <ul>
-                                            <li>
-                                                Createing a new account<br/>
-                                                <a href="/api/post_accounts">POST codex.yodel.co.uk/accounts</a>
-                                            </li>
-                                            <li>
-                                                Reteriving the details for an account <br/>
-                                                <a href="/api/get_account">GET codex.yodel.co.uk/accounts/[account name]</a>
-                                            </li>
-                                            <li>
-                                                Getting the list of users for an account <br/>
-                                                <a href="/api/get_account_users">GET codex.yodel.co.uk/accounts/[account name]/users</a>
-                                            </li>
-                                            <li>
-                                                Getting the details for a specific user <br/>
-                                                <a href="/api/get_account_user">GET codex.yodel.co.uk/accounts/[account name]/users/[username]</a>
-                                            </li>
-                                            <li>
-                                                Creating a new user <br/>
-                                                <a href="/api/post_account_users">POST codex.yodel.co.uk/accounts/[account name]/users</a>
-                                            </li>
-                                            <li>
-                                                Deleting a user <br/>
-                                                <a href="/api/delete_account_user">DELETE codex.yodel.co.uk/accounts/[account name]/users[username]</a>
-                                            </li>
-                                            <li>all the locations for an account <br/><a href="/accounts/acme/locations">codex.yodel.co.uk/accounts/acme/locations</a></li>
-                                            <li>The details for a specific location <br/><a href="/accounts/acme/locations/ACME Heasquarters">codex.yodel.co.uk/accounts/acme/locations/ACME Heasquarters</a></li>
-                                            <li>The manifest for a location <br/><a href="/accounts/acme/locations/ACME Heasquarters/manifest">codex.yodel.co.uk/accounts/acme/locations/ACME Heasquarters/manifest</a></li>
-                                        </ul>
+<div class="heading">Account, Users and Locations</div>
+<ul>
+    <li>
+        Createing a new account<br/>
+        <a href="/api/post_accounts">POST codex.yodel.co.uk/accounts</a>
+    </li>
+    <li>
+        Reteriving the details for an account <br/>
+        <a href="/api/get_account">GET codex.yodel.co.uk/accounts/[account name]</a>
+    </li>
+    <li>
+        Getting the list of users for an account <br/>
+        <a href="/api/get_account_users">GET codex.yodel.co.uk/accounts/[account name]/users</a>
+    </li>
+    <li>
+        Getting the details for a specific user <br/>
+        <a href="/api/get_account_user">GET codex.yodel.co.uk/accounts/[account name]/users/[username]</a>
+    </li>
+    <li>
+        Creating a new user <br/>
+        <a href="/api/post_account_users">POST codex.yodel.co.uk/accounts/[account name]/users</a>
+    </li>
+    <li>
+        Deleting a user <br/>
+        <a href="/api/delete_account_user">DELETE codex.yodel.co.uk/accounts/[account name]/users[username]</a>
+    </li>
 
-                                        <div class="heading">Information about the YODEL parcel network</div>
-                                        <ul>
-                                            <li>list of Postcodes that yodel provides services to <br/><a href="/postcodes">codex.yodel.co.uk/postcodes</a></li>
-                                            <li>Details for a specific postcode <br/><a href="/postcodes/SW17 8LW">codex.yodel.co.uk/postcodes/SW17 8LW</a></li>
-                                        </ul>
+    <li>
+        all the locations for an account <br/>
+        <a href="/api/get_account_locations">GET codex.yodel.co.uk/accounts/[account name]/locations</a>
+    </li>
+    <li>
+        The details for a specific location <br/>
+        <a href="/api/get_account_location">GET codex.yodel.co.uk/accounts/[account name]/locations/[location name]</a>
+    </li>
+    <li>
+        Adding a new location <br/>
+        <a href="/api/post_account_location">POST codex.yodel.co.uk/accounts/[account name]/locations/[location name]</a>
+    </li>
+    <li>
+        Delete an existing location <br/>
+        <a href="/api/delete_account_location">DELETE codex.yodel.co.uk/accounts/[account name]/locations/[location name]</a>
+    </li>
 
-                                        <div class="heading">Parcels</div>
-                                        <ul>
-                                            <li>Information on a specific parcel <br/><a href="/parcels/11102235">codex.yodel.co.uk/parcels/11102235</a></li>
-                                            <li>The label for a parcel<br/><a href="/parcels/11102235/label">codex.yodel.co.uk/parcels/11102235/label</a></li>
-                                            <li>a list of parcels for an account <br/><a href="/accounts/acme/parcels">codex.yodel.co.uk/accounts/acme/parcels</a></li>
-                                            <li>a list of the parcels that have had a label generated for an account <br/><a href="/accounts/acme/parcels/printed">codex.yodel.co.uk/accounts/acme/parcels/printed</a></li>
-                                        </ul>
 
-                                        <div class="heading">Orders and consignments</div>
-                                        <ul>
-                                            <li>Information on a specific order <br/><a href="/orders/272625">codex.yodel.co.uk/orders/272625</a></li>
-                                            <li>a list of an accounts orders <br/><a href="/accounts/acme/orders">codex.yodel.co.uk/accounts/acme/orders</a></li>
-                                            <li>The consigments for an account <br/><a href="/accounts/acme/consignments">codex.yodel.co.uk/accounts/acme/consignments</a></li>
-                                            <li>A specific consignment for an account <br/><a href="/accounts/acme/consignments/3456">codex.yodel.co.uk/accounts/acme/consignments/3456</a></li>
-                                            <li>A list of parcels for a specific consignment <br/><a href="/accounts/acme/consignments/3456/parcels">codex.yodel.co.uk/accounts/acme/consignments/3456/parcels</a></li>
-                                        </ul>
-                                        <div class="heading">Administration API's</div>
-                                        <ul>
-                                            <li>list of all yodel accounts<br/><a href="/accounts">codex.yodel.co.uk/accounts</a></li>
-                                        </ul>
+    
+    <li>The manifest for a location <br/><a href="/accounts/acme/locations/ACME Heasquarters/manifest">codex.yodel.co.uk/accounts/acme/locations/ACME Heasquarters/manifest</a></li>
+</ul>
+
+<div class="heading">Information about the YODEL parcel network</div>
+<ul>
+    <li>list of Postcodes that yodel provides services to <br/><a href="/postcodes">codex.yodel.co.uk/postcodes</a></li>
+    <li>Details for a specific postcode <br/><a href="/postcodes/SW17 8LW">codex.yodel.co.uk/postcodes/SW17 8LW</a></li>
+</ul>
+
+<div class="heading">Parcels</div>
+<ul>
+    <li>Information on a specific parcel <br/><a href="/parcels/11102235">codex.yodel.co.uk/parcels/11102235</a></li>
+    <li>The label for a parcel<br/><a href="/parcels/11102235/label">codex.yodel.co.uk/parcels/11102235/label</a></li>
+    <li>a list of parcels for an account <br/><a href="/accounts/acme/parcels">codex.yodel.co.uk/accounts/acme/parcels</a></li>
+    <li>a list of the parcels that have had a label generated for an account <br/><a href="/accounts/acme/parcels/printed">codex.yodel.co.uk/accounts/acme/parcels/printed</a></li>
+</ul>
+
+<div class="heading">Orders and consignments</div>
+<ul>
+    <li>Information on a specific order <br/><a href="/orders/272625">codex.yodel.co.uk/orders/272625</a></li>
+    <li>a list of an accounts orders <br/><a href="/accounts/acme/orders">codex.yodel.co.uk/accounts/acme/orders</a></li>
+    <li>The consigments for an account <br/><a href="/accounts/acme/consignments">codex.yodel.co.uk/accounts/acme/consignments</a></li>
+    <li>A specific consignment for an account <br/><a href="/accounts/acme/consignments/3456">codex.yodel.co.uk/accounts/acme/consignments/3456</a></li>
+    <li>A list of parcels for a specific consignment <br/><a href="/accounts/acme/consignments/3456/parcels">codex.yodel.co.uk/accounts/acme/consignments/3456/parcels</a></li>
+</ul>
+<div class="heading">Administration API's</div>
+<ul>
+    <li>list of all yodel accounts<br/><a href="/accounts">codex.yodel.co.uk/accounts</a></li>
+</ul>
 
 
 

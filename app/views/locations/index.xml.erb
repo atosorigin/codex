@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <locations>
-  <account>acme</account>
-  <location>ACME Headquarters</location>
-  <location>ACME Main Warehouse</location>
-  <location>Specalist Warehouse</location>
+  <account><%=h  @account.name  %></account>
+<% @locations.each do |location| %>
+  <location><%=h location.name %></location>
+<% end %>
 </locations>
 
 

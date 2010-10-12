@@ -1,0 +1,102 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="ctl00_ctl00_ctl00_ContentPlaceHolderDefault_head">
+        <title>The Yodel Codex</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/codex.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/hdnCSS.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/COGNavigation.css">
+        <script type="text/javascript" src="/javascripts/jQuery.js"></script>
+    </head>
+    <body>
+        <div id="logoutContainer">
+        </div>
+        <div id="main">
+            <div id="body">
+<div id="centerSection">
+<div id="content">
+
+ <div class="heading">GET codex.yodel.co.uk/accounts/[account name]/locations/[location name]</div>
+ <p>
+     Details for a specific location.
+ </p>
+ <div class="heading">Call</div>
+ <div class="code">
+        GET http://codex.yodel.co.uk/accounts/[account name]/locations/[location name]?format=[xml,html]
+ </div>
+ <div class="heading">Parameters</div>
+ <ul>
+     <li>
+         <b>optional format</b><br/>
+         Specified the responce type can take the value <b>xml</b> or <b>html</b>
+         Note that is defaults to html format.
+     </li>
+ </ul>
+
+ <div class="heading">Responce</div>
+ <p>
+      <div class="code">
+        location<br/>
+        <ul>
+            <li>account - the name of the account that has the users</li>
+            <li>address</li>
+            <li>postcode</li>
+        </ul>
+      </div>
+ </p>
+
+ <div class="heading">Example Responce</div>
+ <pre class="code">
+<location>
+    <name>ACME Headquarters</name>
+<account>acme</account>
+<address>
+    123 Highstreet
+    Anytown
+    Somwhereshire
+</address>
+<postcode>HN6 7TY</postcode>
+</location>
+ </pre>
+ <div class="heading">Example jquery code</div>
+ <div id="try_me" class="button">try me</div>
+ <br/>
+ <div id="result" class="js_code">
+     results
+ </div>
+
+ <script>
+
+$("#try_me").click(function() {
+    $.ajax({
+      type: "GET",
+      url: '/accounts/acme/locations/ACME Headquarters?format=xml',
+      dataType: "xml",
+      success: function(data) {
+         $('#result').empty();
+         $('#result').append("<h2>details for ACME Headquarters</h2>");
+         $('#result').append("<ul id='location'></ul>");
+         $('#location').append("<li>name is " + $(data).find('name').text() + "</li>");
+         $('#location').append("<li>address is " + $(data).find('address').text() + "</li>");
+         $('#location').append("<li>postcode is " + $(data).find('postcode').text() + "</li>");
+      }
+    });
+});
+
+ </script>
+
+
+
+
+
+      </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>
