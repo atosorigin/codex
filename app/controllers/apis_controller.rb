@@ -3,33 +3,19 @@ class ApisController < ApplicationController
   # GET /apis.xml
   def index
     @apis = Api.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @apis }
-    end
+    @groups = Api.find_by_sql("select businessgroup from apis group by businessgroup")
   end
-
   # GET /apis/1
   # GET /apis/1.xml
   def show
     @api = Api.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @api }
-    end
+    @parameters = Parameter.find_all_by_id(params[:id])
   end
 
   # GET /apis/new
   # GET /apis/new.xml
   def new
     @api = Api.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @api }
-    end
   end
 
   # GET /apis/1/edit

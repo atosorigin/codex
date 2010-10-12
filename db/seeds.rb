@@ -10,7 +10,7 @@ Api.create([{
       :controller => 'products',
       :method => 'index',
       :url => 'GET http://codex.yodel.co.uk/products?format=[xml,html]',
-      :group => 'Products and services',
+      :businessgroup => 'Products and services',
       :description =>
         'The product API provides a list of all the YODEL products (i.e.
         different parcel delivery services) accross all of the postcodes that
@@ -41,7 +41,7 @@ Api.create([{
       :controller => 'users',
       :method => 'destroy',
       :url => 'DELETE http://codex.yodel.co.uk/accounts/[account name]/users/[username]',
-      :group => 'Account, Users and Locations',
+      :businessgroup => 'Account, Users and Locations',
       :description =>
         'Deletes a user from an account, note that any changes that may have
         been made by the user will still exist within the data.',

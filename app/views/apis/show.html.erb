@@ -1,38 +1,40 @@
-<p>
-  <b>Controller:</b>
-  <%=h @api.controller %>
-</p>
+<div class="heading"><%=@api.url%></div>
+    <p><%=@api.description%></p>
+    <div class="heading">Call</div>
+    <div class="code">
+        <%=@api.url%>
+    </div>
+    <div class="heading">Parameters</div>
+    <ul>
+        <li>
+            <b>format</b><br/>
+            Specified the response type can take the value <b>xml</b> or <b>html</b>
+        </li>
+        <%@parameters.each do |p|%>
+        <li>
+            <b><%=@parameters.name%></b><br/>
+            <p><%=@parameters.description%></p>
+        </li>
+        <%end%>
+    </ul>
 
-<p>
-  <b>Method:</b>
-  <%=h @api.method %>
-</p>
+    <div class="heading">Response</div>
+    <div class="code"><%=simple_format(@api.response).gsub("  ","&nbsp;")%></div>
 
-<p>
-  <b>Url:</b>
-  <%=h @api.url %>
-</p>
+    <div class="heading">Example Response</div>
+    <div class="code"><%=simple_format(@api.exampleresponse).gsub("  ","&nbsp;")%></div>
 
-<p>
-  <b>Description:</b>
-  <%=h @api.description %>
-</p>
-
-<p>
-  <b>Response:</b>
-  <%=h @api.response %>
-</p>
-
-<p>
-  <b>Jquery:</b>
-  <%=h @api.jquery %>
-</p>
-
-<p>
-  <b>Group:</b>
-  <%=h @api.group %>
-</p>
+	
+    <div class="heading">Example jquery code</div>
+        <p>
+        This simple example of an Ajax call invoke this Restful API. It is demonstrated below also
+        </p>
+        <div class="js_code">
+            <%=simple_format(@api.jquery).gsub("  ","&nbsp;")%>
+            <br/>
+        </div>        
+    </div>
+</div>
 
 
-<%= link_to 'Edit', edit_api_path(@api) %> |
-<%= link_to 'Back', apis_path %>
+
