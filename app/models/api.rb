@@ -1,3 +1,3 @@
 class Api < ActiveRecord::Base
-   has_many :parameter
+   has_many :parameters
 end

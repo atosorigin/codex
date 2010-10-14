@@ -6,14 +6,10 @@
     </div>
     <div class="heading">Parameters</div>
     <ul>
-        <li>
-            <b>format</b><br/>
-            Specified the response type can take the value <b>xml</b> or <b>html</b>
-        </li>
         <%@parameters.each do |p|%>
         <li>
-            <b><%=@parameters.name%></b><br/>
-            <p><%=@parameters.description%></p>
+            <b><%=p.name%></b><br/>
+            <%=p.description%><br/>
         </li>
         <%end%>
     </ul>
