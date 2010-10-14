@@ -1,15 +1,13 @@
 <% @groups.each do |g| %>
    <div class="heading"> <%=g.businessgroup%> </div>
+        <ul class="api_list">
 	<%Api.find(:all, :conditions => {:businessgroup => g.businessgroup}).each do |a| %>
-		<ul>
-			<li><%=link_to(a.url, :controller => "apis", :action => "show", :id => a.id)%></li>
-			<li>
-				<ul>
-					<li><%=a.description%></li>
-				</ul>
-			</li>
-  		</ul>
+                <li>
+                  <%=link_to(a.url, :controller => "apis", :action => "show", :id => a.id)%><br/>
+                  <%=a.description%>
+                </li>
 	<% end %>	
+        </ul>
 <% end %>
 
 
