@@ -1,4 +1,7 @@
-<div class="heading"><%=@api.url%></div>
+<div class="heading">
+  <%=@api.apiname%><br/>
+  <%=@api.url%>
+</div>
     <p><%=@api.description%></p>
     <div class="heading">Call</div>
     <div class="code">
@@ -26,7 +29,7 @@
         This simple example of an Ajax call invoke this Restful API. It is demonstrated below also
         </p>
         <div class="js_code">
-            <%=simple_format(@api.jquery).gsub("  ","&nbsp;")%>
+            <%=  h(@api.jquery).gsub(/\n/, "<br/>").gsub(/\t/,"&nbsp;") %>
             <br/>
         </div>        
     </div>
